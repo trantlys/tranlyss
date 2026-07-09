@@ -48,12 +48,7 @@
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: 'Be Vietnam Pro', sans-serif;
-            background: var(--cream);
-            color: var(--ink);
-            overflow-x: hidden;
-        }
+       
 
         .wrap {
             width: min(1180px,100%);
@@ -90,19 +85,23 @@
         }
 
         /* ---------- NAV ---------- */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 6%;
-            background: rgba(255,248,239,.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 3px solid var(--ink);
-        }
-
+       nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999999;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:16px 6%;
+background:rgba(255,248,239,.95);
+backdrop-filter:blur(12px);
+border-bottom:3px solid var(--ink);
+}
+body{
+padding-top:85px;
+}
         .logo {
             font-family: 'Baloo 2', sans-serif;
             font-weight: 800;
@@ -291,14 +290,7 @@
             box-shadow: 6px 6px 0 var(--ink);
         }
 
-            .polaroid img {
-                width: 100%;
-                height: 340px; /* Tăng chiều cao ảnh */
-                object-fit: cover; /* Giữ tỷ lệ, cắt phần thừa */
-                object-position: center top; /* Ưu tiên hiện khuôn mặt */
-                border-radius: 4px;
-                display: block;
-            }
+           
 
             .polaroid.p1 {
                 top: 0;
@@ -907,15 +899,29 @@
                 height: 350px;
             }
 
-        body {
-            background: radial-gradient(circle at 10% 20%,rgba(255,61,127,.06) 2px,transparent 2px), radial-gradient(circle at 80% 40%,rgba(123,47,247,.05) 3px,transparent 3px), var(--cream);
-            background-size: 90px 90px;
-        }
+       
 
         body {
             cursor: default;
         }
+body{
+    font-family:'Be Vietnam Pro',sans-serif;
+    color:var(--ink);
+    overflow-x:hidden;
 
+    background:linear-gradient(
+        120deg,
+        #fff7ef,
+        #ffe6f3,
+        #f8e9ff,
+        #fff7ef
+    );
+
+    background-size:400% 400%;
+    animation:bgGradient 18s ease infinite;
+
+    cursor:default;
+}
         a,
         button {
             cursor: pointer;
@@ -934,7 +940,15 @@
         .polaroid:hover img {
             transform: scale(1.12);
         }
-
+.polaroid img{
+    width:100%;
+    height:340px;
+    object-fit:cover;
+    object-position:center top;
+    border-radius:4px;
+    display:block;
+    transition:.5s;
+}
         .swirl {
             animation: glow 2s infinite alternate;
         }
@@ -967,16 +981,15 @@
             z-index: 999;
         }
 
-        .polaroid img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-        }
+     
 
-        .btn-primary {
-            position: relative;
-            overflow: hidden;
-        }
+        .btn{
+    position:relative;
+    overflow:hidden;
+
+    font-family:'Baloo 2';
+    ...
+}
 
             .btn-primary::after {
                 content: "";
@@ -1124,21 +1137,7 @@ rotate(0deg);
 /* NỀN CHUYỂN MÀU */
 /* ========================= */
 
-body{
 
-background:
-linear-gradient(
-120deg,
-#fff7ef,
-#ffe6f3,
-#f8e9ff,
-#fff7ef);
-
-background-size:400% 400%;
-
-animation:bgGradient 18s ease infinite;
-
-}
 
 @keyframes bgGradient{
 
@@ -1220,35 +1219,7 @@ transition:.15s;
 }
 
 
-/* =========================
-   CURSOR GLOW
-========================= */
 
-#cursorGlow{
-
-position:fixed;
-
-width:35px;
-height:35px;
-
-border-radius:50%;
-
-background:rgba(255,61,127,.25);
-
-pointer-events:none;
-
-transform:translate(-50%,-50%);
-
-backdrop-filter:blur(4px);
-
-transition:
-width .18s,
-height .18s,
-background .18s;
-
-z-index:9999;
-
-}
 
 
 /* Hover */
@@ -1812,14 +1783,10 @@ z-index:5;
                     <h3>Bài tập 6</h3>
 
                     <p>
-                        Sử dụng AI có trách nhiệm trong học tập và nghiên cứu.
+    Sử dụng AI có trách nhiệm trong học tập và nghiên cứu.
+</p>
 
-                        <br>
-
-
-
-                        <div class="btn-row" style="margin-top:20px">
-
+<div class="btn-row" style="margin-top:20px">
 
 
                             <a href="https://docs.google.com/document/d/1BMoabPbEFzyUPJuX94qq3MSnw3qG3ndK/edit"
@@ -1937,7 +1904,7 @@ z-index:5;
                     Facebook
                 </a>
 
-                </a>
+             
 
             </div>
 
@@ -2029,7 +1996,7 @@ p.remove();
 
 }
 
-setInterval(createPetal,320);
+setInterval(createPetal,500);
 
 
 
@@ -2095,8 +2062,7 @@ item.style.transform="";
     <!-- Progress Bar -->
 <div id="scrollProgress"></div>
 
-<!-- Cursor Glow -->
-<div id="cursorGlow"></div>
+
 
 <!-- Dark Mode -->
 <button id="themeBtn">🌙</button>
@@ -2119,36 +2085,6 @@ document.getElementById("scrollProgress").style.width=(sc*100)+"%";
 
 });
 
-
-/* ==========================
-CURSOR GLOW
-========================== */
-
-const glow=document.getElementById("cursorGlow");
-
-document.addEventListener("mousemove",e=>{
-
-glow.style.left=e.clientX+"px";
-
-glow.style.top=e.clientY+"px";
-
-});
-
-document.querySelectorAll("a,button,.btn").forEach(el=>{
-
-el.addEventListener("mouseenter",()=>{
-
-document.body.classList.add("hovering");
-
-});
-
-el.addEventListener("mouseleave",()=>{
-
-document.body.classList.remove("hovering");
-
-});
-
-});
 
 
 /* ==========================
@@ -2251,47 +2187,8 @@ typing();
 Counter
 ========================== */
 
-const counters=document.querySelectorAll(".summary-footer h2");
 
-const observer2=new IntersectionObserver(entries=>{
 
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-const el=entry.target;
-
-const value=el.innerText;
-
-if(!isNaN(parseInt(value))){
-
-let end=parseInt(value);
-
-let n=0;
-
-const timer=setInterval(()=>{
-
-n++;
-
-el.innerText=n;
-
-if(n>=end){
-
-clearInterval(timer);
-
-}
-
-},80);
-
-}
-
-}
-
-});
-
-});
-
-counters.forEach(c=>observer2.observe(c));
 
 
 /* ==========================
