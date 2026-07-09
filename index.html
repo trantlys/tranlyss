@@ -16,7 +16,114 @@
             animation: bgmove 30s linear infinite;
             z-index: -1;
         }
+/* =========================
+   POPUP CHI TIẾT BÀI TẬP
+========================= */
 
+.detail-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(25, 23, 37, .86);
+    z-index: 9999999;
+    padding: 40px 6%;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-popup.show {
+    display: flex;
+}
+
+.detail-content {
+    width: min(820px, 100%);
+    max-height: 86vh;
+    overflow-y: auto;
+    background: #fff8ef;
+    border: 4px solid var(--ink);
+    border-radius: 24px;
+    padding: 34px;
+    color: var(--ink);
+    box-shadow: 14px 14px 0 var(--pink);
+    position: relative;
+    animation: popupIn .25s ease;
+}
+
+.detail-content h3 {
+    font-size: 1.8rem;
+    color: var(--purple);
+    margin-bottom: 14px;
+}
+
+.detail-content p {
+    line-height: 1.8;
+    color: #3a2c4a;
+    font-size: 1rem;
+}
+
+.detail-content ul {
+    margin-top: 18px;
+    display: grid;
+    gap: 10px;
+}
+
+.detail-content li {
+    background: #ffffff;
+    border: 2px dashed var(--purple);
+    border-radius: 14px;
+    padding: 12px 14px;
+    color: var(--ink);
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.detail-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    background: #fff;
+    color: var(--ink);
+    font-size: 24px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--orange);
+}
+
+@keyframes popupIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.dark .detail-popup {
+    background: rgba(0, 0, 0, .88);
+}
+
+.dark .detail-content {
+    background: #252235 !important;
+    color: #ffffff !important;
+}
+
+.dark .detail-content h3,
+.dark .detail-content p,
+.dark .detail-content li {
+    color: #ffffff !important;
+}
+
+.dark .detail-content li {
+    background: #191725 !important;
+    border-color: #ff9d42 !important;
+}
         @keyframes bgmove {
 
             from {
@@ -1675,174 +1782,129 @@ nav{
 
             <div class="skill-grid">
 
-                <!-- Bài tập 1 -->
-                <div class="skill-card">
+               <!-- ============ BÀI TẬP ============ -->
+<section class="homework" id="homework">
+    <div class="wrap homework-box">
 
-                    <h3>Bài tập 1</h3>
+        <div class="section-head">
+            <span class="eyebrow">📚 Dự án & Bài tập</span>
+            <h2>Bài tập của mình</h2>
+            <p>Những bài tập mình đã hoàn thành.</p>
+        </div>
 
-                    <p>
-                        Thao tác cơ bản với tệp tin và thư mục.
-                    </p>
+        <div class="skill-grid">
 
-                    <br>
+            <div class="skill-card">
+                <h3>Bài tập 1</h3>
+                <p>Thao tác cơ bản với tệp tin và thư mục.</p>
 
+                <div class="btn-row" style="margin-top:20px">
+                    <a href="https://docs.google.com/document/d/1_6GnD8IyeVkLEyC4vpM4t4_zsvoPTbmn9Dge7_4MXoo/edit?usp=sharing"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-secondary">
+                        📁 Link bài tập
+                    </a>
 
-
-                    <div class="btn-row" style="margin-top:20px">
-
-
-
-                        <a href="https://docs.google.com/document/d/1_6GnD8IyeVkLEyC4vpM4t4_zsvoPTbmn9Dge7_4MXoo/edit?usp=sharing"
-                           target="_blank"
-                            rel="noopener noreferrer"
-                           class="btn btn-secondary">
-                            📁 Link bài tập
-                        </a>
-
-                    </div>
-
+                    <button class="btn btn-primary" onclick="openDetail(1)">
+                        📝 Chi tiết
+                    </button>
                 </div>
+            </div>
 
-                <!-- Bài tập 2 -->
-                <div class="skill-card">
+            <div class="skill-card">
+                <h3>Bài tập 2</h3>
+                <p>Tìm kiếm và đánh giá thông tin học thuật.</p>
 
-                    <h3>Bài tập 2</h3>
+                <div class="btn-row" style="margin-top:20px">
+                    <a href="https://docs.google.com/document/d/1CafhOtxHE7JWh1CPRLLSwsrDvZqoR-s4/edit"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-secondary">
+                        📁 Link bài tập
+                    </a>
 
-                    <p>
-                        Tìm kiếm và đánh giá thông tin học thuật.
-                    </p>
-
-                    <br>
-
-
-
-                    <div class="btn-row" style="margin-top:20px">
-
-
-
-                        <a href="https://docs.google.com/document/d/1CafhOtxHE7JWh1CPRLLSwsrDvZqoR-s4/edit"
-                           target="_blank"
-                            rel="noopener noreferrer"
-                           class="btn btn-secondary">
-                            📁 Link bài tập
-                        </a>
-
-                    </div>
-
+                    <button class="btn btn-primary" onclick="openDetail(2)">
+                        📝 Chi tiết
+                    </button>
                 </div>
+            </div>
 
-                <!-- Bài tập 3 -->
-                <div class="skill-card">
+            <div class="skill-card">
+                <h3>Bài tập 3</h3>
+                <p>Viết Prompt hiệu quả cho các tác vụ học tập.</p>
 
-                    <h3>Bài tập 3</h3>
+                <div class="btn-row" style="margin-top:20px">
+                    <a href="https://docs.google.com/document/d/1JnTe4qY1nu1Vqw3L7ZERHZsUG_lNuw-M/edit"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-secondary">
+                        📁 Link bài tập
+                    </a>
 
-                    <p>
-                        Viết Prompt hiệu quả cho các tác vụ học tập.
-                    </p>
-
-                    <br>
-
-
-
-                    <div class="btn-row" style="margin-top:20px">
-
-
-
-                        <a href="https://docs.google.com/document/d/1JnTe4qY1nu1Vqw3L7ZERHZsUG_lNuw-M/edit"
-                           target="_blank"
-                            rel="noopener noreferrer"
-                           class="btn btn-secondary">
-                            📁 Link bài tập
-                        </a>
-
-                    </div>
-
+                    <button class="btn btn-primary" onclick="openDetail(3)">
+                        📝 Chi tiết
+                    </button>
                 </div>
+            </div>
 
-                <!-- Bài tập 4 -->
-                <div class="skill-card">
+            <div class="skill-card">
+                <h3>Bài tập 4</h3>
+                <p>Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm.</p>
 
-                    <h3>Bài tập 4</h3>
+                <div class="btn-row" style="margin-top:20px">
+                    <a href="https://docs.google.com/document/d/1e8Rfplp8MFLSuW_xtfTey1Uae6xwH0cW/edit#heading=h.66chm3e8zn5f"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-secondary">
+                        📁 Link bài tập
+                    </a>
 
-                    <p>
-                        Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm.
-                    </p>
-
-                    <br>
-
-
-
-                    <div class="btn-row" style="margin-top:20px">
-
-
-
-                        <a href="https://docs.google.com/document/d/1e8Rfplp8MFLSuW_xtfTey1Uae6xwH0cW/edit#heading=h.66chm3e8zn5f"
-                           target="_blank"
-                            rel="noopener noreferrer"
-                           class="btn btn-secondary">
-                            📁 Link bài tập
-                        </a>
-
-                    </div>
-
+                    <button class="btn btn-primary" onclick="openDetail(4)">
+                        📝 Chi tiết
+                    </button>
                 </div>
+            </div>
 
-                <!-- Bài tập 5 -->
-                <div class="skill-card">
+            <div class="skill-card">
+                <h3>Bài tập 5</h3>
+                <p>Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung.</p>
 
-                    <h3>Bài tập 5</h3>
+                <div class="btn-row" style="margin-top:20px">
+                    <a href="https://docs.google.com/document/d/1jFJwr-bvVFMQXQ2K-D9tPAY5hY-2xUoh/edit"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-secondary">
+                        📁 Link bài tập
+                    </a>
 
-                    <p>
-                        Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung.
-                    </p>
-
-                    <br>
-
-
-
-                    <div class="btn-row" style="margin-top:20px">
-
-
-
-                        <a href="https://docs.google.com/document/d/1jFJwr-bvVFMQXQ2K-D9tPAY5hY-2xUoh/edit"
-                           target="_blank"
-                            rel="noopener noreferrer"
-                           class="btn btn-secondary">
-                            📁 Link bài tập
-                        </a>
-
-                    </div>
-
+                    <button class="btn btn-primary" onclick="openDetail(5)">
+                        📝 Chi tiết
+                    </button>
                 </div>
+            </div>
 
-                <!-- Bài tập 6 -->
-                <div class="skill-card">
+            <div class="skill-card">
+                <h3>Bài tập 6</h3>
+                <p>Sử dụng AI có trách nhiệm trong học tập và nghiên cứu.</p>
 
-                    <h3>Bài tập 6</h3>
+                <div class="btn-row" style="margin-top:20px">
+                    <a href="https://docs.google.com/document/d/1BMoabPbEFzyUPJuX94qq3MSnw3qG3ndK/edit"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-secondary">
+                        📁 Link bài tập
+                    </a>
 
-                    <p>
-    Sử dụng AI có trách nhiệm trong học tập và nghiên cứu.
-</p>
-
-<div class="btn-row" style="margin-top:20px">
-
-
-                            <a href="https://docs.google.com/document/d/1BMoabPbEFzyUPJuX94qq3MSnw3qG3ndK/edit"
-                               target="_blank"
-                                rel="noopener noreferrer"
-                               class="btn btn-secondary">
-                                📁 Link bài tập
-                            </a>
-
-                        </div>
-
+                    <button class="btn btn-primary" onclick="openDetail(6)">
+                        📝 Chi tiết
+                    </button>
                 </div>
-
             </div>
 
         </div>
-
-    </section>
+    </div>
+</section>
 
     <!-- ============ tổng kết ============ -->
     <section class="overview" id="overview">
@@ -2534,6 +2596,137 @@ c.remove();
 
 });
 
+</script>
+                <div id="detailPopup" class="detail-popup" onclick="closeDetail()">
+    <div class="detail-content" onclick="event.stopPropagation()">
+        <button class="detail-close" onclick="closeDetail()">×</button>
+        <h3 id="detailTitle">Chi tiết bài tập</h3>
+        <p id="detailDesc"></p>
+        <ul id="detailList"></ul>
+    </div>
+</div>
+                <script>
+const detailData = {
+    1: {
+        title: "Bài tập 1: Thao tác với tệp tin và thư mục",
+        desc: "Mục tiêu: Rèn luyện kỹ năng tạo, đổi tên, sao chép, di chuyển, xóa tệp tin và thư mục một cách thành thạo trên hệ điều hành Windows.",
+        items: [
+            "Mở File Explorer.",
+            "Truy cập ổ đĩa hoặc thư mục.",
+            "Tạo thư mục mới.",
+            "Vào thư mục vừa tạo.",
+            "Tạo tệp tin văn bản.",
+            "Đổi tên tệp tin.",
+            "Tạo thư mục con.",
+            "Sao chép tệp tin (Copy & Paste).",
+            "Di chuyển tệp tin (Cut & Paste).",
+            "Xóa tệp tin.",
+            "Xóa vĩnh viễn.",
+            "Khôi phục từ Thùng rác (tùy chọn)."
+        ]
+    },
+    2: {
+        title: "Bài tập 2: Tìm kiếm và đánh giá thông tin học thuật",
+        desc: "Mục tiêu: Phát triển kỹ năng tìm kiếm và đánh giá thông tin học thuật từ các nguồn đáng tin cậy.",
+        items: [
+            "Chọn một chủ đề liên quan đến ngành học.",
+            "Tìm kiếm thông tin từ cơ sở dữ liệu học thuật như Google Scholar, Microsoft Academic hoặc cơ sở dữ liệu của thư viện trường.",
+            "Tìm kiếm tài liệu từ tạp chí khoa học chuyên ngành.",
+            "Tìm kiếm tài liệu từ sách chuyên khảo.",
+            "Tham khảo thêm các nguồn mở trên internet.",
+            "Thu thập ít nhất 10 tài liệu tham khảo liên quan đến chủ đề, bao gồm ít nhất 5 bài báo khoa học.",
+            "Đánh giá độ tin cậy của mỗi nguồn dựa trên các tiêu chí: tác giả, cơ quan xuất bản, phương pháp nghiên cứu, trích dẫn và tính cập nhật.",
+            "Tạo bảng tổng hợp các nguồn thông tin kèm đánh giá và xếp hạng độ tin cậy."
+        ]
+    },
+    3: {
+        title: "Bài tập 3: Viết prompt hiệu quả",
+        desc: "Mục tiêu: Phát triển kỹ năng viết prompt hiệu quả để tận dụng tối đa khả năng của các mô hình ngôn ngữ lớn trong học tập.",
+        items: [
+            "Chọn 3 tác vụ học tập phổ biến.",
+            "Tác vụ 1: Tóm tắt một bài đọc hoặc tài liệu học thuật.",
+            "Tác vụ 2: Giải thích một khái niệm phức tạp.",
+            "Tác vụ 3: Tạo bộ câu hỏi ôn tập cho một chủ đề.",
+            "Với mỗi tác vụ, viết 3 phiên bản prompt khác nhau.",
+            "Prompt cơ bản: đơn giản, ngắn gọn.",
+            "Prompt cải tiến: chi tiết hơn, có cấu trúc.",
+            "Prompt nâng cao: áp dụng kỹ thuật prompt engineering như role prompting, chain-of-thought hoặc few-shot examples.",
+            "Thử nghiệm các prompt với một công cụ AI như ChatGPT và so sánh kết quả.",
+            "Phân tích lý do vì sao một số prompt hiệu quả hơn các prompt khác.",
+            "Tổng hợp các nguyên tắc và mẹo viết prompt hiệu quả dựa trên kết quả thử nghiệm."
+        ]
+    },
+    4: {
+        title: "Bài tập 4: Công cụ hợp tác trực tuyến",
+        desc: "Mục tiêu: Thành thạo các công cụ hợp tác trực tuyến và thể hiện năng lực quản lý, điều phối cá nhân trong dự án nhóm.",
+        items: [
+            "Làm việc cùng nhóm để thực hiện một dự án nhỏ, tập trung vào vai trò và trải nghiệm cá nhân.",
+            "Tham gia thiết lập hoặc sử dụng ít nhất 3 công cụ hợp tác trực tuyến.",
+            "Sử dụng công cụ quản lý dự án như Trello, Asana, ClickUp hoặc Microsoft Planner.",
+            "Sử dụng công cụ soạn thảo tài liệu cộng tác như Google Docs hoặc Microsoft Office Online.",
+            "Sử dụng công cụ lưu trữ và chia sẻ tệp như Google Drive, OneDrive hoặc Dropbox.",
+            "Sử dụng công cụ giao tiếp nhóm như Slack, Discord hoặc Microsoft Teams.",
+            "Tự quản lý danh sách nhiệm vụ được giao trên công cụ quản lý.",
+            "Có lịch sử chỉnh sửa và đóng góp nội dung trực tiếp trên tài liệu cộng tác.",
+            "Tương tác, thảo luận chủ động với các thành viên khác trên công cụ giao tiếp.",
+            "Tổ chức và lưu trữ các tệp tin cá nhân phụ trách một cách khoa học.",
+            "Ghi lại nhật ký minh chứng, bao gồm ảnh chụp màn hình thể hiện rõ tên tài khoản hoặc phần đóng góp cá nhân."
+        ]
+    },
+    5: {
+        title: "Bài tập 5: Sử dụng AI tạo sinh",
+        desc: "Mục tiêu: Thành thạo việc sử dụng các công cụ AI tạo sinh để hỗ trợ quá trình sáng tạo nội dung số.",
+        items: [
+            "Chọn một dự án sáng tạo nội dung như bài thuyết trình, bài viết, infographic hoặc video ngắn.",
+            "Sử dụng ít nhất 3 công cụ AI tạo sinh khác nhau để hỗ trợ quá trình sáng tạo.",
+            "Ghi lại các prompt đã sử dụng và kết quả nhận được.",
+            "Trình bày cách chỉnh sửa và tích hợp đầu ra của AI vào sản phẩm.",
+            "So sánh kết quả từ các công cụ AI khác nhau.",
+            "Hoàn thiện dự án bằng cách kết hợp đầu ra của AI với đóng góp sáng tạo cá nhân.",
+            "Viết phân tích về vai trò của AI trong quá trình sáng tạo."
+        ]
+    },
+    6: {
+        title: "Bài tập 6: Sử dụng AI có trách nhiệm",
+        desc: "Mục tiêu: Phát triển kỹ năng sử dụng AI có trách nhiệm và đạo đức trong học tập và nghiên cứu.",
+        items: [
+            "Nghiên cứu chính sách của trường đại học về việc sử dụng AI trong học tập và nghiên cứu.",
+            "Chọn một nhiệm vụ học tập như viết bài luận, chuẩn bị thuyết trình hoặc tổng hợp tài liệu.",
+            "Thực hiện nhiệm vụ học tập với sự hỗ trợ của AI.",
+            "Phân tích các vấn đề đạo đức liên quan đến việc sử dụng AI trong học thuật.",
+            "Xây dựng bộ nguyên tắc cá nhân gồm 5 đến 7 nguyên tắc về cách sử dụng AI có trách nhiệm trong học tập.",
+            "Tạo một infographic minh họa chủ đề 'Sử dụng AI có trách nhiệm trong học thuật'."
+        ]
+    }
+};
+
+function openDetail(id) {
+    const data = detailData[id];
+
+    document.getElementById("detailTitle").textContent = data.title;
+    document.getElementById("detailDesc").textContent = data.desc;
+
+    const list = document.getElementById("detailList");
+    list.innerHTML = "";
+
+    data.items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+    });
+
+    document.getElementById("detailPopup").classList.add("show");
+}
+
+function closeDetail() {
+    document.getElementById("detailPopup").classList.remove("show");
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        closeDetail();
+    }
+});
 </script>
 </body>
 </html>
