@@ -5,144 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang giới thiệu | Trần Thị Lý</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(circle, #ff3d7f22 2px, transparent 2px);
-            background-size: 80px 80px;
-            animation: bgmove 30s linear infinite;
-            z-index: -1;
-        }
-/* =========================
-   POPUP CHI TIẾT BÀI TẬP
-========================= */
-
-.detail-popup {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(25, 23, 37, .86);
-    z-index: 9999999;
-    padding: 40px 6%;
-    align-items: center;
-    justify-content: center;
-}
-
-.detail-popup.show {
-    display: flex;
-}
-
-.detail-content {
-    width: min(820px, 100%);
-    max-height: 86vh;
-    overflow-y: auto;
-    background: #fff8ef;
-    border: 4px solid var(--ink);
-    border-radius: 24px;
-    padding: 34px;
-    color: var(--ink);
-    box-shadow: 14px 14px 0 var(--pink);
-    position: relative;
-    animation: popupIn .25s ease;
-}
-
-.detail-content h3 {
-    font-size: 1.8rem;
-    color: var(--purple);
-    margin-bottom: 14px;
-}
-
-.detail-content p {
-    line-height: 1.8;
-    color: #3a2c4a;
-    font-size: 1rem;
-}
-
-.detail-content ul {
-    margin-top: 18px;
-    display: grid;
-    gap: 10px;
-}
-
-.detail-content li {
-    background: #ffffff;
-    border: 2px dashed var(--purple);
-    border-radius: 14px;
-    padding: 12px 14px;
-    color: var(--ink);
-    font-weight: 600;
-    line-height: 1.6;
-}
-
-.detail-close {
-    position: absolute;
-    top: 14px;
-    right: 16px;
-    width: 42px;
-    height: 42px;
-    border: 3px solid var(--ink);
-    border-radius: 50%;
-    background: #fff;
-    color: var(--ink);
-    font-size: 24px;
-    font-weight: 800;
-    cursor: pointer;
-    box-shadow: 4px 4px 0 var(--orange);
-}
-
-@keyframes popupIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px) scale(.96);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-.dark .detail-popup {
-    background: rgba(0, 0, 0, .88);
-}
-
-.dark .detail-content {
-    background: #252235 !important;
-    color: #ffffff !important;
-}
-
-.dark .detail-content h3,
-.dark .detail-content p,
-.dark .detail-content li {
-    color: #ffffff !important;
-}
-
-.dark .detail-content li {
-    background: #191725 !important;
-    border-color: #ff9d42 !important;
-}
-        @keyframes bgmove {
-
-            from {
-                background-position: 0 0;
-            }
-
-            to {
-                background-position: 300px 300px;
-            }
-        }
-
         :root {
-            --pink: #FF3D7F;
-            --purple: #7B2FF7;
-            --orange: #FF9D42;
-            --teal: #00C9A7;
-            --cream: #FFF8EF;
+            --pink: #ff3d7f;
+            --purple: #7b2ff7;
+            --orange: #ff9d42;
+            --teal: #00c9a7;
+            --cream: #fff8ef;
             --ink: #241536;
-            --paper: #FFFFFF;
+            --paper: #ffffff;
+            --muted: #4a3a5c;
         }
 
         * {
@@ -155,22 +29,30 @@
             scroll-behavior: smooth;
         }
 
-       
-
-        .wrap {
-            width: min(1180px,100%);
-            margin: auto;
-            position: relative;
-            z-index: 2;
+        body {
+            min-height: 100vh;
+            padding-top: 82px;
+            overflow-x: hidden;
+            font-family: "Be Vietnam Pro", sans-serif;
+            color: var(--ink);
+            background: linear-gradient(120deg, #fff7ef, #ffe6f3, #f8e9ff, #fff7ef);
+            background-size: 400% 400%;
+            animation: bgGradient 18s ease infinite;
         }
 
-        h1, h2, h3, .display {
-            font-family: 'Baloo 2', sans-serif;
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: radial-gradient(circle, #ff3d7f22 2px, transparent 2px);
+            background-size: 80px 80px;
+            animation: bgMove 30s linear infinite;
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
         ul {
@@ -178,204 +60,119 @@
         }
 
         img {
-            max-width: 100%;
             display: block;
+            max-width: 100%;
         }
 
-        /* ---------- background blobs ---------- */
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(2px);
-            z-index: 0;
-            opacity: .85;
+        h1, h2, h3, .logo, .btn, .eyebrow {
+            font-family: "Baloo 2", sans-serif;
         }
 
-        /* ---------- NAV ---------- */
-     nav{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    width:100%;
-    z-index:999999;
+        button, a {
+            cursor: pointer;
+        }
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+        .wrap {
+            width: min(1180px, 100%);
+            margin: auto;
+        }
 
-    padding:16px 6%;
+        section {
+            position: relative;
+            z-index: 5;
+            padding: 90px 6%;
+        }
 
-    background:rgba(255,248,239,.95);
-    backdrop-filter:blur(12px);
+        nav {
+            position: fixed;
+            inset: 0 0 auto;
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 6%;
+            border-bottom: 3px solid var(--ink);
+            background: rgba(255, 248, 239, .95);
+            backdrop-filter: blur(12px);
+        }
 
-    border-bottom:3px solid var(--ink);
-}
-body{
-padding-top:85px;
-}
         .logo {
-            font-family: 'Baloo 2', sans-serif;
-            font-weight: 800;
-            font-size: 1.4rem;
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 1.4rem;
+            font-weight: 800;
         }
 
-            .logo .dot {
-                width: 12px;
-                height: 12px;
-                border-radius: 50%;
-                background: var(--pink);
-                display: inline-block;
-            }
+        .logo .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--pink);
+        }
 
         .nav-links {
             display: flex;
             gap: 28px;
             font-weight: 600;
-            font-size: .95rem;
         }
 
-            .nav-links a {
-                position: relative;
-                padding: 4px 2px;
-            }
+        .nav-links a {
+            position: relative;
+            padding: 4px 2px;
+        }
 
-                .nav-links a::after {
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    bottom: -2px;
-                    width: 0;
-                    height: 3px;
-                    background: var(--purple);
-                    transition: width .25s ease;
-                }
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 3px;
+            background: var(--purple);
+            transition: .25s;
+        }
 
-                .nav-links a:hover::after {
-                    width: 100%;
-                }
+        .nav-links a:hover {
+            color: var(--pink);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
         .burger {
             display: none;
-            font-size: 1.6rem;
-            cursor: pointer;
+            border: 0;
             background: none;
-            border: none;
-        }
-
-        /* ---------- HERO ---------- */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            padding: clamp(40px,6vw,80px) 6%;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-        }
-
-            .hero .blob1 {
-                width: 420px;
-                height: 420px;
-                background: var(--orange);
-                top: -120px;
-                right: -100px;
-            }
-
-            .hero .blob2 {
-                width: 280px;
-                height: 280px;
-                background: var(--teal);
-                bottom: -80px;
-                left: -60px;
-            }
-
-            .hero .blob3 {
-                width: 160px;
-                height: 160px;
-                background: var(--purple);
-                top: 60%;
-                right: 8%;
-                opacity: .5;
-            }
-
-        .hero-inner {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1.15fr .85fr;
-            gap: 40px;
-            align-items: center;
-            width: 100%;
-            max-width: 1180px;
-            margin: 0 auto;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--ink);
-            color: var(--cream);
-            padding: 8px 16px;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: .85rem;
-            letter-spacing: .03em;
-            transform: rotate(-2deg);
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.4rem, 5.5vw, 4.2rem);
-            line-height: 1.05;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-            .hero h1 .swirl {
-                color: var(--pink);
-                -webkit-text-stroke: 2px var(--ink);
-                text-shadow: 4px 4px 0 var(--purple);
-            }
-
-        .hero p.lede {
-            font-size: 1.15rem;
-            max-width: 520px;
-            line-height: 1.6;
-            color: #4a3a5c;
-            margin-bottom: 30px;
+            color: var(--ink);
+            font-size: 1.6rem;
         }
 
         .btn-row {
             display: flex;
-            gap: 16px;
             flex-wrap: wrap;
+            gap: 14px;
         }
 
         .btn {
-            font-family: 'Baloo 2', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 14px 26px;
-            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 12px 22px;
             border: 3px solid var(--ink);
-            cursor: pointer;
-            transition: transform .15s ease, box-shadow .15s ease;
+            border-radius: 14px;
             box-shadow: 5px 5px 0 var(--ink);
+            font-size: 1rem;
+            font-weight: 700;
+            transition: .2s;
         }
 
-            .btn:hover {
-                transform: translate(-2px,-2px);
-                box-shadow: 7px 7px 0 var(--ink);
-            }
-
-            .btn:active {
-                transform: translate(1px,1px);
-                box-shadow: 2px 2px 0 var(--ink);
-            }
+        .btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0 var(--ink);
+        }
 
         .btn-primary {
             background: var(--pink);
@@ -387,95 +184,142 @@ padding-top:85px;
             color: var(--ink);
         }
 
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 22px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: var(--ink);
+            color: var(--cream);
+            font-size: .85rem;
+            font-weight: 700;
+            transform: rotate(-2deg);
+        }
+
+        .hero {
+            position: relative;
+            z-index: 5;
+            min-height: 100vh;
+            padding: clamp(40px, 6vw, 80px) 6%;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-inner {
+            width: 100%;
+            max-width: 1180px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            min-height: 1.15em;
+            margin-bottom: 20px;
+            font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+            line-height: 1.05;
+            font-weight: 800;
+        }
+
+        .lede {
+            max-width: 560px;
+            margin-bottom: 30px;
+            color: var(--muted);
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        .blob {
+            position: absolute;
+            z-index: 0;
+            border-radius: 50%;
+            filter: blur(2px);
+            opacity: .85;
+            animation: blobFloat 8s ease-in-out infinite;
+        }
+
+        .blob1 {
+            width: 420px;
+            height: 420px;
+            top: -120px;
+            right: -100px;
+            background: var(--orange);
+        }
+
+        .blob2 {
+            width: 280px;
+            height: 280px;
+            bottom: -80px;
+            left: -60px;
+            background: var(--teal);
+        }
+
+        .blob3 {
+            width: 160px;
+            height: 160px;
+            top: 60%;
+            right: 8%;
+            background: var(--purple);
+            opacity: .5;
+        }
+
         .polaroid-stack {
             position: relative;
-            height: clamp(340px,50vw,500px);
+            height: clamp(340px, 50vw, 500px);
         }
 
         .polaroid {
             position: absolute;
-            width: 360px; /* Khung rộng hơn */
-            background: #fff;
+            top: 0;
+            left: 30px;
+            width: min(360px, 92vw);
             padding: 12px 12px 46px;
-            border-radius: 8px;
             border: 3px solid var(--ink);
+            border-radius: 8px;
+            background: #fff;
             box-shadow: 6px 6px 0 var(--ink);
+            transform: rotate(-7deg);
+            animation: photoFloat 4s ease-in-out infinite;
         }
 
-           
+        .polaroid img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 4px;
+        }
 
-            .polaroid.p1 {
-                top: 0;
-                left: 30px;
-                transform: rotate(-7deg);
-                z-index: 2;
-            }
-
-            .polaroid.p2 {
-                top: 120px;
-                left: 150px;
-                transform: rotate(6deg);
-                z-index: 3;
-                background: var(--cream);
-            }
-
-            .polaroid figcaption {
-                font-family: 'Baloo 2';
-                font-weight: 700;
-                text-align: center;
-                margin-top: 10px;
-                color: var(--ink);
-            }
+        .polaroid figcaption {
+            margin-top: 10px;
+            text-align: center;
+            font-family: "Baloo 2", sans-serif;
+            font-weight: 700;
+        }
 
         .tape {
             position: absolute;
-            width: 80px;
-            height: 26px;
-            background: rgba(255,157,66,.85);
-            border: 2px dashed var(--ink);
             top: -14px;
             left: 60%;
+            width: 80px;
+            height: 26px;
+            border: 2px dashed var(--ink);
+            background: rgba(255, 157, 66, .85);
             transform: translateX(-50%) rotate(-4deg);
-            z-index: 4;
         }
 
-        section {
-            position: relative;
-            padding: 90px 6%;
-        }
-
-        .section-head {
-            max-width: 680px;
-            margin: 0 auto 50px;
-            text-align: center;
-        }
-
-            .section-head .eyebrow {
-                background: var(--purple);
-                color: #fff;
-            }
-
-            .section-head h2 {
-                font-size: clamp(2rem,4vw,2.8rem);
-                font-weight: 800;
-            }
-
-            .section-head p {
-                color: #4a3a5c;
-                margin-top: 12px;
-                font-size: 1.05rem;
-            }
-
-
-
-        /* ---------- giới thiệu ---------- */
         .about {
-            background: var(--paper);
-            border-top: 3px solid var(--ink);
-            border-bottom: 3px solid var(--ink);
             min-height: 100vh;
             display: flex;
             align-items: center;
+            border-top: 3px solid var(--ink);
+            border-bottom: 3px solid var(--ink);
+            background: var(--paper);
         }
 
         .about-grid {
@@ -485,43 +329,43 @@ padding-top:85px;
             align-items: center;
         }
 
-        .info-card {
-            background: var(--cream);
+        .info-card, .skill-card, .contact-card, .detail-content {
             border: 3px solid var(--ink);
-            border-radius: 20px;
-            padding: 30px;
+            background: var(--cream);
             box-shadow: 8px 8px 0 var(--orange);
         }
 
-            .info-card h3 {
-                font-size: 1.5rem;
-                margin-bottom: 18px;
-            }
+        .info-card {
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 18px;
+            font-size: 1.5rem;
+        }
 
         .info-list li {
             display: flex;
             gap: 12px;
             padding: 10px 0;
             border-bottom: 2px dashed #d8cbe8;
-            font-size: .98rem;
         }
 
-            .info-list li:last-child {
-                border-bottom: none;
-            }
+        .info-list li:last-child {
+            border-bottom: 0;
+        }
 
         .info-list b {
             min-width: 110px;
             color: var(--purple);
-            font-family: 'Baloo 2';
-            font-weight: 700;
         }
 
         .bio p {
+            margin-bottom: 16px;
+            color: #3a2c4a;
             font-size: 1.05rem;
             line-height: 1.8;
-            color: #3a2c4a;
-            margin-bottom: 16px;
         }
 
         .chip-row {
@@ -532,25 +376,170 @@ padding-top:85px;
         }
 
         .chip {
-            font-weight: 600;
-            font-size: .88rem;
             padding: 8px 16px;
-            border-radius: 999px;
             border: 2px solid var(--ink);
+            border-radius: 999px;
             background: var(--teal);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .chip:nth-child(3n+2) {
+            background: var(--pink);
+        }
+
+        .chip:nth-child(3n) {
+            background: var(--orange);
+            color: var(--ink);
+        }
+
+        .homework {
+            background: var(--ink);
+            color: var(--cream);
+        }
+
+        .homework-box {
+            padding: 50px;
+            border: 4px solid var(--ink);
+            border-radius: 30px;
+            background: #fffdf8;
+            color: var(--ink);
+            box-shadow: 14px 14px 0 var(--pink);
+        }
+
+        .section-head {
+            max-width: 680px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .section-head .eyebrow {
+            background: var(--purple);
             color: #fff;
         }
 
-            .chip:nth-child(3n+2) {
-                background: var(--pink);
-            }
+        .homework .eyebrow {
+            background: var(--orange);
+            color: var(--ink);
+        }
 
-            .chip:nth-child(3n) {
-                background: var(--orange);
-                color: var(--ink);
-            }
+        .section-head h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+        }
 
-        /* ---------- Tổng kết ---------- */
+        .section-head p {
+            margin-top: 12px;
+            color: var(--muted);
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            padding: 28px;
+            border-color: var(--purple);
+            border-radius: 20px;
+            background: #fff;
+            transition: .25s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 14px 14px 0 var(--pink);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 15px;
+            color: var(--purple);
+            font-size: 1.4rem;
+        }
+
+        .skill-card p {
+            min-height: 58px;
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .skill-card .btn {
+            flex: 1 1 150px;
+            padding: 12px 18px;
+            font-size: .95rem;
+        }
+
+        .detail-popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999999;
+            padding: 40px 6%;
+            align-items: center;
+            justify-content: center;
+            background: rgba(25, 23, 37, .86);
+        }
+
+        .detail-popup.show {
+            display: flex;
+        }
+
+        .detail-content {
+            position: relative;
+            width: min(820px, 100%);
+            max-height: 86vh;
+            overflow-y: auto;
+            padding: 34px;
+            border-width: 4px;
+            border-radius: 24px;
+            box-shadow: 14px 14px 0 var(--pink);
+            animation: popupIn .25s ease;
+        }
+
+        .detail-content h3 {
+            margin-bottom: 14px;
+            padding-right: 48px;
+            color: var(--purple);
+            font-size: 1.8rem;
+        }
+
+        .detail-content p {
+            color: #3a2c4a;
+            line-height: 1.8;
+        }
+
+        .detail-content ul {
+            display: grid;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .detail-content li {
+            padding: 12px 14px;
+            border: 2px dashed var(--purple);
+            border-radius: 14px;
+            background: #fff;
+            color: var(--ink);
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .detail-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            width: 42px;
+            height: 42px;
+            border: 3px solid var(--ink);
+            border-radius: 50%;
+            background: #fff;
+            color: var(--ink);
+            box-shadow: 4px 4px 0 var(--orange);
+            font-size: 24px;
+            font-weight: 800;
+        }
+
         .overview {
             background: var(--cream);
         }
@@ -559,140 +548,44 @@ padding-top:85px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            margin-top: 40px;
+        }
+
+        .summary-box {
+            padding: 25px;
+            border-radius: 18px;
         }
 
         .summary-box h3 {
-            font-size: 1.5rem;
             margin-bottom: 20px;
             color: var(--purple);
+            font-size: 1.5rem;
         }
 
         .summary-box p {
-            font-size: 1rem;
-            line-height: 2;
             color: #555;
+            line-height: 2;
             text-align: justify;
         }
 
         .summary-footer {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
             margin-top: 60px;
             padding-top: 40px;
             border-top: 2px solid #ddd;
-            display: flex;
-            justify-content: space-around;
             text-align: center;
         }
 
-            .summary-footer h2 {
-                font-size: 3rem;
-                color: var(--purple);
-                font-family: 'Baloo 2';
-            }
-
-            .summary-footer p {
-                color: #666;
-            }
-
-        @media(max-width:900px) {
-
-            .summary-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .summary-footer {
-                flex-direction: column;
-                gap: 30px;
-            }
-        }
-        /* ---------- BÀI TẬP ---------- */
-
-        .homework {
-            background: var(--ink);
-            color: var(--cream);
-            padding: 100px 6%;
+        .summary-footer h2 {
+            color: var(--purple);
+            font-size: 3rem;
         }
 
-        .homework-box {
-            background: #fffdf8;
-            color: var(--ink);
-            border: 4px solid var(--ink);
-            border-radius: 30px;
-            padding: 50px;
-            box-shadow: 14px 14px 0 var(--pink);
-        }
-
-        .homework .section-head p {
-            color: #666;
-        }
-
-        .homework .section-head h2 {
-            color: var(--ink);
-        }
-
-        .homework .eyebrow {
-            background: var(--orange);
-            color: var(--ink);
-        }
-
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .skill-card {
-            background: #fff;
-            border: 4px solid var(--purple);
-            border-radius: 20px;
-            padding: 28px;
-            box-shadow: 8px 8px 0 var(--orange);
-            transition: all .25s ease;
-        }
-
-            .skill-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 12px 12px 0 var(--pink);
-            }
-
-            .skill-card h3 {
-                font-family: 'Baloo 2';
-                font-size: 1.4rem;
-                margin-bottom: 15px;
-                color: var(--purple);
-            }
-
-            .skill-card p {
-                color: #555;
-                line-height: 1.7;
-                margin-bottom: 20px;
-            }
-
-            .skill-card b {
-                display: block;
-                color: var(--ink);
-                margin-bottom: 20px;
-            }
-
-            .skill-card .btn-row {
-                display: flex;
-                gap: 12px;
-                flex-wrap: wrap;
-            }
-
-            .skill-card .btn {
-                flex: 1;
-                text-align: center;
-                padding: 12px 18px;
-                font-size: .95rem;
-            }
-
-        /* ---------- Liên hệ ---------- */
         .contact {
+            border-top: 3px solid var(--ink);
             background: var(--paper);
             text-align: center;
-            border-top: 3px solid var(--ink);
         }
 
         .contact-grid {
@@ -707,1058 +600,414 @@ padding-top:85px;
             display: flex;
             align-items: center;
             gap: 12px;
-            background: var(--cream);
-            border: 3px solid var(--ink);
-            border-radius: 16px;
             padding: 16px 24px;
+            border-radius: 16px;
             font-weight: 600;
-            box-shadow: 5px 5px 0 var(--teal);
-            transition: transform .15s ease;
         }
 
-            .contact-card:hover {
-                transform: translateY(-4px) rotate(-1deg);
-            }
-
-            .contact-card .ic {
-                width: 38px;
-                height: 38px;
-                border-radius: 50%;
-                background: var(--purple);
-                color: #fff;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.1rem;
-            }
+        .ic {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--purple);
+            color: #fff;
+        }
 
         footer {
-            text-align: center;
+            position: relative;
+            z-index: 5;
             padding: 26px 6%;
-            font-size: .88rem;
-            color: #7a6a8a;
             background: var(--cream);
+            color: #7a6a8a;
+            text-align: center;
         }
 
-        @media (max-width:860px) {
+        #particleCanvas,
+        #petals,
+        #butterflies,
+        #fireflies {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        #particleCanvas {
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #petals {
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        #butterflies,
+        #fireflies {
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            top: -50px;
+            width: 18px;
+            height: 18px;
+            border-radius: 70% 0 70% 0;
+            background: linear-gradient(135deg, #ff9ac2, #ff4f8a);
+            filter: drop-shadow(0 0 6px rgba(255, 90, 150, .35));
+            opacity: .85;
+            animation: fall linear forwards;
+        }
+
+        .butterfly {
+            position: absolute;
+            font-size: 28px;
+            filter: drop-shadow(0 0 10px rgba(255, 105, 180, .4));
+            animation: fly linear infinite;
+        }
+
+        .firefly {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #ffe96e;
+            box-shadow: 0 0 8px #fff799, 0 0 18px #ffe96e, 0 0 30px #ffe96e;
+            opacity: .9;
+            animation: fireflyMove linear infinite;
+        }
+
+        #scrollProgress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000000;
+            width: 0%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--pink), var(--purple), var(--teal));
+        }
+
+        #topBtn, #themeBtn {
+            position: fixed;
+            right: 20px;
+            z-index: 99999;
+            width: 56px;
+            height: 56px;
+            border: 3px solid var(--ink);
+            border-radius: 50%;
+            background: #fff;
+            color: var(--ink);
+            box-shadow: 5px 5px 0 var(--pink);
+            font-size: 22px;
+        }
+
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, .85);
+            opacity: 0;
+            visibility: hidden;
+            transition: .4s;
+        }
+
+        #lightbox.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #lightbox img {
+            max-width: 85%;
+            max-height: 85%;
+            border: 6px solid #fff;
+            border-radius: 18px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, .4);
+            animation: zoomIn .35s;
+        }
+
+        .spark {
+            position: fixed;
+            z-index: 999999;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 0 10px #fff, 0 0 20px var(--pink), 0 0 30px var(--pink);
+            pointer-events: none;
+            animation: spark .8s forwards;
+        }
+
+        .heart {
+            position: absolute;
+            z-index: 20;
+            font-size: 20px;
+            pointer-events: none;
+            animation: heartFloat 2s forwards;
+        }
+
+        #topBtn {
+            bottom: 25px;
+            display: none;
+        }
+
+        #themeBtn {
+            bottom: 95px;
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(70px);
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hidden, .show {
+            transition: 1s ease;
+        }
+
+        .dark {
+            background: #191725 !important;
+            color: #fff !important;
+        }
+
+        .dark h1, .dark h2, .dark h3, .dark p, .dark li,
+        .dark span, .dark a, .dark b, .dark figcaption {
+            color: #fff !important;
+        }
+
+        .dark nav, .dark .about, .dark .overview, .dark .contact, .dark footer {
+            background: #191725 !important;
+        }
+
+        .dark .homework {
+            background: #11101a !important;
+        }
+
+        .dark .info-card, .dark .homework-box, .dark .skill-card,
+        .dark .summary-box, .dark .contact-card, .dark .detail-content {
+            background: #252235 !important;
+            color: #fff !important;
+        }
+
+        .dark .detail-content li {
+            background: #191725 !important;
+            border-color: var(--orange) !important;
+        }
+
+        .dark .btn-secondary {
+            background: #fff !important;
+            color: var(--ink) !important;
+        }
+
+        @media (max-width: 900px) {
+            .hero-inner, .about-grid, .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-footer {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 860px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                gap: 12px;
+                padding: 20px 6%;
+                border-bottom: 3px solid var(--ink);
+                background: var(--cream);
+            }
+
+            .nav-links.show {
+                display: flex;
             }
 
             .burger {
                 display: block;
             }
 
-            .hero-inner {
-                grid-template-columns: 1fr;
-            }
-
             .polaroid-stack {
-                height: 340px;
-                margin: 0 auto;
+                height: 360px;
                 max-width: 340px;
+                margin: auto;
             }
 
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ============================= */
-        /* HIỆU ỨNG CHUYỂN ĐỘNG TOÀN TRANG */
-        /* ============================= */
-
-        * {
-            transition: transform .35s ease, box-shadow .35s ease, background-color .35s ease, color .35s ease, border-color .35s ease;
-        }
-
-        /* Card bài tập */
-        .skill-card:hover {
-            transform: translateY(-12px) scale(1.03) rotate(-1deg);
-            box-shadow: 18px 18px 0 var(--pink);
-        }
-
-        /* Thông tin cá nhân */
-        .info-card:hover {
-            transform: translateY(-8px) rotate(-1deg);
-            box-shadow: 14px 14px 0 var(--purple);
-        }
-
-        /* Tổng kết */
-        .summary-box {
-            padding: 25px;
-            border-radius: 18px;
-        }
-
-            .summary-box:hover {
-                background: #fff;
-                transform: translateY(-8px) scale(1.02);
-                box-shadow: 10px 10px 0 var(--orange);
-            }
-
-        /* Contact */
-        .contact-card:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 10px 10px 0 var(--pink);
-        }
-
-        /* Nút */
-        .btn:hover {
-            transform: translateY(-6px) scale(1.05);
-        }
-
-        .btn:active {
-            transform: scale(.95);
-        }
-
-        /* Chip */
-        .chip:hover {
-            transform: translateY(-5px) rotate(-3deg);
-        }
-
-        /* Thanh menu */
-        .nav-links a {
-            transition: .3s;
-        }
-
-            .nav-links a:hover {
-                color: var(--pink);
-                transform: translateY(-2px);
-            }
-
-        /* Logo */
-        .logo {
-            transition: .4s;
-        }
-
-            .logo:hover {
-                transform: rotate(-5deg) scale(1.1);
-            }
-
-        /* Ảnh Polaroid */
-        .polaroid {
-            transition: .4s;
-        }
-
-        .polaroid {
-            animation: floating 4s ease-in-out infinite;
-            transition: .4s;
-        }
-
-            .polaroid:hover {
-                animation-play-state: paused;
-                transform: translateY(-10px) scale(1.08) rotate(2deg);
-            }
-
-        /* Các số thống kê */
-        .summary-footer div {
-            transition: .35s;
-        }
-
-            .summary-footer div:hover {
-                transform: translateY(-8px) scale(1.08);
-            }
-
-                .summary-footer div:hover h2 {
-                    color: var(--pink);
-                }
-
-        /* Card thông tin */
-        .info-list li {
-            transition: .3s;
-        }
-
-            .info-list li:hover {
-                padding-left: 12px;
-                color: var(--purple);
-            }
-
-        /* Tiêu đề */
-        h2:hover,
-        h3:hover {
-            color: var(--pink);
-        }
-
-        /* Link */
-        a {
-            transition: .3s;
-        }
-
-            a:hover {
-                opacity: .95;
-            }
-
-        /* Hiệu ứng xuất hiện */
-        @keyframes floatUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero,
-        .about,
-        .homework,
-        .overview,
-        .contact {
-            animation: floatUp .9s ease;
-        }
-
-        /* Nổi nhẹ liên tục */
-
-        @keyframes floating {
-            0% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-6px);
-            }
-
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        .skill-card:nth-child(2) {
-            animation-delay: .2s;
-        }
-
-        .skill-card:nth-child(3) {
-            animation-delay: .4s;
-        }
-
-        .skill-card:nth-child(4) {
-            animation-delay: .6s;
-        }
-
-        .skill-card:nth-child(5) {
-            animation-delay: .8s;
-        }
-
-        .skill-card:nth-child(6) {
-            animation-delay: 1s;
-        }
-
-        .skill-card:nth-child(7) {
-            animation-delay: 1.2s;
-        }
-
-        @media (max-width:860px) {
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 70px;
+            .polaroid {
                 left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                border-bottom: 3px solid var(--ink);
             }
 
-                .nav-links.show {
-                    display: flex;
-                }
-        }
-
-        .hidden {
-            opacity: 0;
-            transform: translateY(80px) scale(.95);
-        }
-
-        .show {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .hidden,
-        .show {
-            transition: 1s ease;
-        }
-
-        footer:hover {
-            letter-spacing: 2px;
-            color: var(--purple);
-        }
-
-        .btn {
-            position: relative;
-            overflow: hidden;
-        }
-
-            .btn::before {
-                content: "";
-                position: absolute;
-                width: 0;
-                height: 0;
-                border-radius: 50%;
-                background: rgba(255,255,255,.3);
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%,-50%);
-                transition: .5s;
-            }
-
-            .btn:hover::before {
-                width: 350px;
-                height: 350px;
-            }
-
-       
-
-        body {
-            cursor: default;
-        }
-body{
-    font-family:'Be Vietnam Pro',sans-serif;
-    color:var(--ink);
-    overflow-x:hidden;
-
-    padding-top:82px;
-
-    background:linear-gradient(
-        120deg,
-        #fff7ef,
-        #ffe6f3,
-        #f8e9ff,
-        #fff7ef
-    );
-
-    background-size:400% 400%;
-    animation:bgGradient 18s ease infinite;
-
-    cursor:default;
-}
-        a,
-        button {
-            cursor: pointer;
-        }
-
-        .skill-card {
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
-
-        .polaroid img {
-            transition: .5s;
-        }
-
-        .polaroid:hover img {
-            transform: scale(1.12);
-        }
-.polaroid img{
-    width:100%;
-    height:340px;
-    object-fit:cover;
-    object-position:center top;
-    border-radius:4px;
-    display:block;
-    transition:.5s;
-}
-        .swirl {
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes glow {
-
-            0% {
-                text-shadow: 4px 4px 0 var(--purple);
-            }
-
-            100% {
-                text-shadow: 4px 4px 0 var(--purple), 0 0 18px var(--pink);
+            .homework-box {
+                padding: 28px;
             }
         }
 
-        #topBtn {
-            position: fixed;
-            right: 25px;
-            bottom: 25px;
-            width: 55px;
-            height: 55px;
-            border: none;
-            border-radius: 50%;
-            background: var(--pink);
-            color: white;
-            font-size: 22px;
-            cursor: pointer;
-            display: none;
-            box-shadow: 5px 5px 0 var(--ink);
-            z-index: 999;
+        @keyframes bgMove {
+            from { background-position: 0 0; }
+            to { background-position: 300px 300px; }
         }
 
-     
-
-        .btn{
-    position:relative;
-    overflow:hidden;
-
-    font-family:'Baloo 2';
-   
-}
-
-            .btn-primary::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 50%;
-                height: 100%;
-                background: rgba(255,255,255,.3);
-                transform: skewX(-20deg);
-            }
-
-            .btn-primary:hover::after {
-                left: 130%;
-                transition: .6s;
-            }
-
-        .hero h1 {
-            animation: title 1s ease;
+        @keyframes bgGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
-        @keyframes title {
+        @keyframes blobFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+        }
 
+        @keyframes photoFloat {
+            0%, 100% { transform: translateY(0) rotate(-7deg); }
+            50% { transform: translateY(-6px) rotate(-7deg); }
+        }
+
+        @keyframes popupIn {
+            from { opacity: 0; transform: translateY(30px) scale(.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes fall {
             from {
-                opacity: 0;
-                transform: translateY(60px);
+                transform: translateY(-50px) rotate(0deg);
             }
 
             to {
+                transform: translateY(110vh) translateX(120px) rotate(720deg);
+            }
+        }
+
+        @keyframes fly {
+            0% { transform: translate(-120px, 80vh) rotate(0deg); }
+            25% { transform: translate(30vw, 35vh) rotate(15deg); }
+            50% { transform: translate(60vw, 60vh) rotate(-12deg); }
+            75% { transform: translate(90vw, 20vh) rotate(10deg); }
+            100% { transform: translate(110vw, 55vh) rotate(0deg); }
+        }
+
+        @keyframes fireflyMove {
+            0% {
+                transform: translateY(110vh) translateX(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-20vh) translateX(180px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes spark {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-45px) scale(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(.5); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes heartFloat {
+            from {
                 opacity: 1;
                 transform: translateY(0);
             }
+
+            to {
+                opacity: 0;
+                transform: translateY(-120px) rotate(20deg);
+            }
         }
-        /* ========================= */
-/* HOA ANH ĐÀO */
-/* ========================= */
-
-#petals{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:1;
-}
-
-.petal{
-    position:absolute;
-    top:-50px;
-    width:18px;
-    height:18px;
-    background:linear-gradient(135deg,#ff9ac2,#ff4f8a);
-    border-radius:70% 0 70% 0;
-    opacity:.85;
-    animation:fall linear forwards;
-    filter:drop-shadow(0 0 6px rgba(255,90,150,.35));
-}
-
-@keyframes fall{
-
-    0%{
-        transform:
-        translateY(-50px)
-        rotate(0deg);
-    }
-
-    100%{
-        transform:
-        translateY(110vh)
-        translateX(120px)
-        rotate(720deg);
-    }
-
-}
-
-
-/* ========================= */
-/* BƯỚM */
-/* ========================= */
-
-#butterflies{
-
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    overflow:hidden;
-    z-index:2;
-
-}
-
-.butterfly{
-
-    position:absolute;
-    font-size:28px;
-    animation:fly linear infinite;
-    filter:drop-shadow(0 0 10px rgba(255,105,180,.4));
-
-}
-
-@keyframes fly{
-
-0%{
-
-transform:
-translate(-120px,80vh)
-rotate(0deg);
-
-}
-
-25%{
-
-transform:
-translate(30vw,35vh)
-rotate(15deg);
-
-}
-
-50%{
-
-transform:
-translate(60vw,60vh)
-rotate(-12deg);
-
-}
-
-75%{
-
-transform:
-translate(90vw,20vh)
-rotate(10deg);
-
-}
-
-100%{
-
-transform:
-translate(110vw,55vh)
-rotate(0deg);
-
-}
-
-}
-
-
-/* ========================= */
-/* NỀN CHUYỂN MÀU */
-/* ========================= */
-
-
-
-@keyframes bgGradient{
-
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-
-}
-
-
-/* Blob chuyển động */
-
-.blob{
-
-animation:blobFloat 10s ease-in-out infinite;
-
-}
-
-.hero .blob2{
-
-animation-delay:2s;
-
-}
-
-.hero .blob3{
-
-animation-delay:4s;
-
-}
-
-@keyframes blobFloat{
-
-0%{
-
-transform:translateY(0px);
-
-}
-
-50%{
-
-transform:translateY(-30px)
-scale(1.05);
-
-}
-
-100%{
-
-transform:translateY(0);
-
-}
-
-}
-/* Responsive fix */
-@media (max-width:768px){
-.hero{min-height:auto;padding:48px 20px;}
-.hero-inner{grid-template-columns:1fr;text-align:center;gap:32px}
-.hero p.lede{max-width:100%}
-.btn-row{justify-content:center}
-.polaroid-stack{height:auto;display:flex;justify-content:center}
-.polaroid{position:relative!important;top:auto!important;left:auto!important;transform:none!important;width:min(320px,90vw)}
-.polaroid img{height:auto!important;aspect-ratio:4/5}
-.about-grid,.summary-grid{grid-template-columns:1fr}
-.summary-footer,.contact-grid{flex-direction:column}
-.contact-card,.btn{width:100%;justify-content:center}
-}
-/* =========================
-   THANH TIẾN TRÌNH
-========================= */
-
-#scrollProgress{
-position:fixed;
-top:0;
-left:0;
-height:5px;
-width:0%;
-background:linear-gradient(90deg,#ff3d7f,#7b2ff7,#00c9a7);
-z-index:99999;
-transition:.15s;
-}
-
-
-
-
-
-/* Hover */
-
-body.hovering #cursorGlow{
-
-width:65px;
-height:65px;
-
-background:rgba(123,47,247,.18);
-
-}
-
-
-/* =========================
-   DARK MODE
-========================= */
-
-#themeBtn {
-    position: fixed;
-    right: 20px;
-    bottom: 95px;
-    width: 56px;
-    height: 56px;
-    border: none;
-    border-radius: 50%;
-    font-size: 23px;
-    cursor: pointer;
-    background: white;
-    color: #241536;
-    box-shadow: 0 8px 18px rgba(0,0,0,.18);
-    z-index: 99999;
-    transition: .3s;
-}
-
-#themeBtn:hover {
-    transform: rotate(20deg) scale(1.08);
-}
-
-.dark {
-    background: #191725 !important;
-    color: #ffffff !important;
-}
-
-.dark h1,
-.dark h2,
-.dark h3,
-.dark p,
-.dark li,
-.dark span,
-.dark a,
-.dark b,
-.dark figcaption {
-    color: #ffffff !important;
-}
-
-.dark .lede,
-.dark .bio p,
-.dark .summary-box p,
-.dark .section-head p,
-.dark .contact p,
-.dark footer {
-    color: #f1f1f1 !important;
-}
-
-.dark nav,
-.dark .about,
-.dark .overview,
-.dark .contact,
-.dark footer {
-    background: #191725 !important;
-}
-
-.dark .homework {
-    background: #11101a !important;
-}
-
-.dark .info-card,
-.dark .homework-box,
-.dark .skill-card,
-.dark .summary-box,
-.dark .contact-card {
-    background: #252235 !important;
-    color: #ffffff !important;
-}
-
-.dark .btn-primary {
-    background: #ff3d7f !important;
-    color: #ffffff !important;
-}
-
-.dark .btn-secondary {
-    background: #ffffff !important;
-    color: #241536 !important;
-}
-
-.dark .chip {
-    color: #ffffff !important;
-}
-
-.dark .ic {
-    background: #7b2ff7 !important;
-    color: #ffffff !important;
-}
-
-.dark #themeBtn {
-    background: #ffffff;
-    color: #241536;
-}
-/* =========================
-   SPARKLE
-========================= */
-
-.spark{
-
-position:fixed;
-
-width:8px;
-height:8px;
-
-border-radius:50%;
-
-pointer-events:none;
-
-background:#fff;
-
-box-shadow:
-
-0 0 10px #fff,
-
-0 0 20px #ff3d7f,
-
-0 0 30px #ff3d7f;
-
-animation:spark .8s forwards;
-
-z-index:999999;
-
-}
-
-@keyframes spark{
-
-0%{
-
-opacity:1;
-
-transform:scale(1);
-
-}
-
-100%{
-
-opacity:0;
-
-transform:
-
-translateY(-45px)
-
-scale(0);
-
-}
-
-}
-        /* ===========================
-LIGHTBOX
-=========================== */
-
-#lightbox{
-
-position:fixed;
-inset:0;
-
-background:rgba(0,0,0,.85);
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-opacity:0;
-visibility:hidden;
-
-transition:.4s;
-
-z-index:999999;
-
-}
-
-#lightbox.show{
-
-opacity:1;
-visibility:visible;
-
-}
-
-#lightbox img{
-
-max-width:85%;
-max-height:85%;
-
-border-radius:18px;
-
-border:6px solid white;
-
-box-shadow:0 0 40px rgba(255,255,255,.4);
-
-animation:zoomIn .35s;
-
-}
-
-@keyframes zoomIn{
-
-from{
-
-transform:scale(.5);
-
-}
-
-to{
-
-transform:scale(1);
-
-}
-
-}
-
-
-/* ===========================
-HEART
-=========================== */
-
-.heart{
-
-position:absolute;
-
-font-size:20px;
-
-animation:heartFloat 2s forwards;
-
-pointer-events:none;
-
-}
-
-@keyframes heartFloat{
-
-0%{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-100%{
-
-opacity:0;
-transform:
-translateY(-120px)
-rotate(20deg);
-
-}
-
-}
-        /* ===========================
-   PARTICLE CANVAS
-=========================== */
-
-#particleCanvas{
-position:fixed;
-inset:0;
-width:100%;
-height:100%;
-pointer-events:none;
-z-index:0;
-}
-
-/* ===========================
-   FIREFLIES
-=========================== */
-
-#fireflies{
-position:fixed;
-inset:0;
-pointer-events:none;
-overflow:hidden;
-z-index:2;
-}
-
-.firefly{
-
-position:absolute;
-
-width:7px;
-height:7px;
-
-border-radius:50%;
-
-background:#ffe96e;
-
-box-shadow:
-0 0 8px #fff799,
-0 0 18px #ffe96e,
-0 0 30px #ffe96e;
-
-animation:fireflyMove linear infinite;
-
-opacity:.9;
-
-}
-
-@keyframes fireflyMove{
-
-0%{
-
-transform:
-translateY(110vh)
-translateX(0);
-
-opacity:0;
-
-}
-
-20%{
-
-opacity:1;
-
-}
-
-100%{
-
-transform:
-translateY(-20vh)
-translateX(180px);
-
-opacity:0;
-
-}
-
-}
-
-/* canvas luôn nằm dưới nội dung */
-
-.hero,
-.about,
-.homework,
-.overview,
-.contact,
-footer{
-    position:relative;
-    z-index:5;
-}
-
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    z-index:999999;
-}
-</style>
+    </style>
 </head>
 <body>
     <canvas id="particleCanvas"></canvas>
-<div id="fireflies"></div>
-<!-- Hiệu ứng -->
-<div id="petals"></div>
-<div id="butterflies"></div>
+    <div id="fireflies"></div>
+    <div id="petals"></div>
+    <div id="butterflies"></div>
+    <div id="scrollProgress"></div>
+
     <nav>
-        <div class="logo"><span class="dot"></span>Trần Thị Lý</div>
-        <ul class="nav-links">
+        <a class="logo" href="#top"><span class="dot"></span>Trần Thị Lý</a>
+        <ul class="nav-links" id="navLinks">
             <li><a href="#about">Giới thiệu</a></li>
             <li><a href="#homework">Bài tập</a></li>
             <li><a href="#overview">Tổng kết</a></li>
             <li><a href="#contact">Liên hệ</a></li>
         </ul>
-        <button class="burger" aria-label="Mở menu"
-            onclick="document.querySelector('.nav-links').classList.toggle('show')">☰</button>
+        <button class="burger" type="button" aria-label="Mở menu" onclick="toggleMenu()">☰</button>
     </nav>
 
-    <!-- ============ bản thân ============ -->
     <header class="hero" id="top">
         <div class="blob blob1"></div>
         <div class="blob blob2"></div>
         <div class="blob blob3"></div>
+
         <div class="hero-inner">
             <div>
                 <span class="eyebrow">🎓 PORTFOLIO</span>
-               <h1 id="typing"></h1>
+                <h1 id="typing"></h1>
                 <p class="lede">
-                    Sinh viên ngành Kinh Tế Phát  Triển tại Trường Đại học Kinh Tế -
-                    ĐHQGHN. Đây là cuốn "hộ chiếu" nho nhỏ mình dùng để lưu lại hành trình học tập, các bài tập và những trải nghiệm đáng nhớ trong học phần Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo.
+                    Sinh viên ngành Kinh tế Phát triển tại Trường Đại học Kinh tế - ĐHQGHN. Đây là cuốn "hộ chiếu" nho nhỏ mình dùng để lưu lại hành trình học tập, các bài tập và những trải nghiệm đáng nhớ trong học phần Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo.
                 </p>
                 <div class="btn-row">
                     <a href="#homework" class="btn btn-primary">Xem bài tập</a>
                     <a href="#contact" class="btn btn-secondary">Liên hệ</a>
                 </div>
             </div>
+
             <div class="polaroid-stack">
-                <figure class="polaroid p1">
+                <figure class="polaroid">
                     <div class="tape"></div>
-                    <img src="images/tranthily.jpg" alt="Ảnh cá nhân">
+                    <img src="images/tranthily.jpg" alt="Ảnh cá nhân của Trần Thị Lý">
                     <figcaption>Ảnh cá nhân</figcaption>
                 </figure>
             </div>
         </div>
     </header>
 
-    <!-- ============ giới thiệu ============ -->
     <section class="about" id="about">
         <div class="wrap about-grid">
             <div class="info-card">
                 <h3>Thông tin cá nhân</h3>
                 <ul class="info-list">
                     <li><b>Họ tên</b> Trần Thị Lý</li>
-                    <li>
-                        <b>Lớp</b> [VNU1001_E252042] Nhập môn CNS&AI
-                    </li>
+                    <li><b>Lớp</b> [VNU1001_E252042] Nhập môn CNS&AI</li>
                     <li><b>Ngày sinh</b> 21/09/2007</li>
                     <li><b>Sở thích</b> Đọc sách, vẽ, cầu lông</li>
                     <li><b>Email</b> trantlys21@gmail.com</li>
                 </ul>
             </div>
+
             <div class="bio">
-                <span class="eyebrow">✨ Về mình</span>
-                <h2 style="font-size:2rem; margin:14px 0 18px;">Một chút chuyện về mình</h2>
-                <p>Mình luôn thích khám phá những điều mới mẻ, đặc biệt là trong lĩnh vực công nghệ và khoa học tự nhiên. Với mình, mỗi bài tập không chỉ là nhiệm vụ mà còn là cơ hội để hiểu sâu hơn về thế giới xung quanh.</p>
-                <p>Ngoài giờ học, mình tham gia CLB Tin học của trường và thường xuyên luyện tập các bài toán lập trình. Mình tin rằng học tập vui vẻ sẽ giúp ghi nhớ lâu hơn — đó cũng là lý do trang web này được thiết kế thật nhiều màu sắc!</p>
+                <span class="eyebrow">🌷 Giới thiệu</span>
+                <p>Mình là Trần Thị Lý, sinh viên ngành Kinh tế Phát triển. Mình yêu thích việc học hỏi những công cụ số mới và cách AI có thể hỗ trợ học tập, sáng tạo, quản lý thông tin hiệu quả hơn.</p>
+                <p>Trang portfolio này tổng hợp các bài tập, sản phẩm và trải nghiệm học tập của mình trong học phần Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo.</p>
                 <div class="chip-row">
                     <span class="chip">Toán học</span>
                     <span class="chip">Đọc sách</span>
@@ -1770,10 +1019,8 @@ nav{
         </div>
     </section>
 
-    <!-- ============ BÀI TẬP ============ -->
     <section class="homework" id="homework">
         <div class="wrap homework-box">
-
             <div class="section-head">
                 <span class="eyebrow">📚 Dự án & Bài tập</span>
                 <h2>Bài tập của mình</h2>
@@ -1781,136 +1028,65 @@ nav{
             </div>
 
             <div class="skill-grid">
+                <article class="skill-card">
+                    <h3>Bài tập 1</h3>
+                    <p>Thao tác cơ bản với tệp tin và thư mục.</p>
+                    <div class="btn-row">
+                        <a href="https://docs.google.com/document/d/1_6GnD8IyeVkLEyC4vpM4t4_zsvoPTbmn9Dge7_4MXoo/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">📁 Link bài tập</a>
+                        <button class="btn btn-primary" type="button" onclick="openDetail(1)">📝 Chi tiết</button>
+                    </div>
+                </article>
 
-               <!-- ============ BÀI TẬP ============ -->
-<section class="homework" id="homework">
-    <div class="wrap homework-box">
+                <article class="skill-card">
+                    <h3>Bài tập 2</h3>
+                    <p>Tìm kiếm và đánh giá thông tin học thuật.</p>
+                    <div class="btn-row">
+                        <a href="https://docs.google.com/document/d/1CafhOtxHE7JWh1CPRLLSwsrDvZqoR-s4/edit" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">📁 Link bài tập</a>
+                        <button class="btn btn-primary" type="button" onclick="openDetail(2)">📝 Chi tiết</button>
+                    </div>
+                </article>
 
-        <div class="section-head">
-            <span class="eyebrow">📚 Dự án & Bài tập</span>
-            <h2>Bài tập của mình</h2>
-            <p>Những bài tập mình đã hoàn thành.</p>
+                <article class="skill-card">
+                    <h3>Bài tập 3</h3>
+                    <p>Viết prompt hiệu quả cho các tác vụ học tập.</p>
+                    <div class="btn-row">
+                        <a href="https://docs.google.com/document/d/1JnTe4qY1nu1Vqw3L7ZERHZsUG_lNuw-M/edit" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">📁 Link bài tập</a>
+                        <button class="btn btn-primary" type="button" onclick="openDetail(3)">📝 Chi tiết</button>
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <h3>Bài tập 4</h3>
+                    <p>Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm.</p>
+                    <div class="btn-row">
+                        <a href="https://docs.google.com/document/d/1e8Rfplp8MFLSuW_xtfTey1Uae6xwH0cW/edit#heading=h.66chm3e8zn5f" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">📁 Link bài tập</a>
+                        <button class="btn btn-primary" type="button" onclick="openDetail(4)">📝 Chi tiết</button>
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <h3>Bài tập 5</h3>
+                    <p>Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung.</p>
+                    <div class="btn-row">
+                        <a href="https://docs.google.com/document/d/1jFJwr-bvVFMQXQ2K-D9tPAY5hY-2xUoh/edit" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">📁 Link bài tập</a>
+                        <button class="btn btn-primary" type="button" onclick="openDetail(5)">📝 Chi tiết</button>
+                    </div>
+                </article>
+
+                <article class="skill-card">
+                    <h3>Bài tập 6</h3>
+                    <p>Sử dụng AI có trách nhiệm trong học tập và nghiên cứu.</p>
+                    <div class="btn-row">
+                        <a href="https://docs.google.com/document/d/1BMoabPbEFzyUPJuX94qq3MSnw3qG3ndK/edit" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">📁 Link bài tập</a>
+                        <button class="btn btn-primary" type="button" onclick="openDetail(6)">📝 Chi tiết</button>
+                    </div>
+                </article>
+            </div>
         </div>
+    </section>
 
-        <div class="skill-grid">
-
-            <div class="skill-card">
-                <h3>Bài tập 1</h3>
-                <p>Thao tác cơ bản với tệp tin và thư mục.</p>
-
-                <div class="btn-row" style="margin-top:20px">
-                    <a href="https://docs.google.com/document/d/1_6GnD8IyeVkLEyC4vpM4t4_zsvoPTbmn9Dge7_4MXoo/edit?usp=sharing"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn btn-secondary">
-                        📁 Link bài tập
-                    </a>
-
-                    <button class="btn btn-primary" onclick="openDetail(1)">
-                        📝 Chi tiết
-                    </button>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <h3>Bài tập 2</h3>
-                <p>Tìm kiếm và đánh giá thông tin học thuật.</p>
-
-                <div class="btn-row" style="margin-top:20px">
-                    <a href="https://docs.google.com/document/d/1CafhOtxHE7JWh1CPRLLSwsrDvZqoR-s4/edit"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn btn-secondary">
-                        📁 Link bài tập
-                    </a>
-
-                    <button class="btn btn-primary" onclick="openDetail(2)">
-                        📝 Chi tiết
-                    </button>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <h3>Bài tập 3</h3>
-                <p>Viết Prompt hiệu quả cho các tác vụ học tập.</p>
-
-                <div class="btn-row" style="margin-top:20px">
-                    <a href="https://docs.google.com/document/d/1JnTe4qY1nu1Vqw3L7ZERHZsUG_lNuw-M/edit"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn btn-secondary">
-                        📁 Link bài tập
-                    </a>
-
-                    <button class="btn btn-primary" onclick="openDetail(3)">
-                        📝 Chi tiết
-                    </button>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <h3>Bài tập 4</h3>
-                <p>Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm.</p>
-
-                <div class="btn-row" style="margin-top:20px">
-                    <a href="https://docs.google.com/document/d/1e8Rfplp8MFLSuW_xtfTey1Uae6xwH0cW/edit#heading=h.66chm3e8zn5f"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn btn-secondary">
-                        📁 Link bài tập
-                    </a>
-
-                    <button class="btn btn-primary" onclick="openDetail(4)">
-                        📝 Chi tiết
-                    </button>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <h3>Bài tập 5</h3>
-                <p>Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung.</p>
-
-                <div class="btn-row" style="margin-top:20px">
-                    <a href="https://docs.google.com/document/d/1jFJwr-bvVFMQXQ2K-D9tPAY5hY-2xUoh/edit"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn btn-secondary">
-                        📁 Link bài tập
-                    </a>
-
-                    <button class="btn btn-primary" onclick="openDetail(5)">
-                        📝 Chi tiết
-                    </button>
-                </div>
-            </div>
-
-            <div class="skill-card">
-                <h3>Bài tập 6</h3>
-                <p>Sử dụng AI có trách nhiệm trong học tập và nghiên cứu.</p>
-
-                <div class="btn-row" style="margin-top:20px">
-                    <a href="https://docs.google.com/document/d/1BMoabPbEFzyUPJuX94qq3MSnw3qG3ndK/edit"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn btn-secondary">
-                        📁 Link bài tập
-                    </a>
-
-                    <button class="btn btn-primary" onclick="openDetail(6)">
-                        📝 Chi tiết
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-    <!-- ============ tổng kết ============ -->
     <section class="overview" id="overview">
-
         <div class="wrap">
-
             <div class="section-head">
                 <span class="eyebrow">📖 Tổng kết</span>
                 <h2>Nhìn nhận & Trải nghiệm học tập</h2>
@@ -1918,815 +1094,378 @@ nav{
             </div>
 
             <div class="summary-grid">
-
                 <div class="summary-box">
-                    <h3>📚 Trải nghiệm trong quá trình thực hiện Portfolio</h3>
-
-                    <p>
-                       
-Trong quá trình xây dựng Portfolio, tôi đã có cơ hội hệ thống lại những kiến thức đã học và vận dụng chúng vào các sản phẩm thực tế. Đây là trải nghiệm giúp tôi hiểu rõ hơn cách ứng dụng công nghệ số và AI trong học tập, đồng thời rèn luyện tính chủ động, sáng tạo và khả năng tự học.
-                    </p>
+                    <h3>📚 Điều mình học được</h3>
+                    <p>Trong quá trình xây dựng portfolio, mình có cơ hội hệ thống lại kiến thức đã học và vận dụng vào các sản phẩm thực tế. Đây là trải nghiệm giúp mình hiểu rõ hơn cách ứng dụng công nghệ số và AI trong học tập.</p>
                 </div>
-
                 <div class="summary-box">
-                    <h3>🌱 Kiến thức và kỹ năng đạt được; Điều tâm đắc và những thách thức</h3>
-
-                    <p>
-                      
-Qua học phần, tôi đã nắm được những kiến thức cơ bản về chuyển đổi số, trí tuệ nhân tạo và vai trò của công nghệ trong học tập cũng như cuộc sống. Bên cạnh đó, tôi cũng phát triển các kỹ năng quan trọng như tìm kiếm và đánh giá thông tin, sử dụng các công cụ AI một cách hiệu quả, làm việc trên nền tảng số và trình bày nội dung trực quan.
-
-Điều tôi tâm đắc nhất là nhận thức được rằng AI không chỉ là một công cụ hỗ trợ mà còn là động lực thúc đẩy việc học tập và phát triển bản thân. Thách thức lớn nhất trong quá trình thực hiện Portfolio là lựa chọn, tổng hợp và trình bày nội dung sao cho logic, ngắn gọn và có tính thẩm mỹ. Tuy nhiên, những khó khăn đó đã giúp tôi nâng cao kỹ năng tổ chức thông tin và sử dụng công nghệ hiệu quả hơn.
-                    </p>
+                    <h3>🌱 Quá trình phát triển</h3>
+                    <p>Qua học phần, mình nắm được kiến thức cơ bản về chuyển đổi số, trí tuệ nhân tạo và vai trò của công nghệ. Thách thức lớn nhất là lựa chọn, tổng hợp và trình bày nội dung sao cho logic, ngắn gọn và có tính thẩm mỹ.</p>
                 </div>
-
             </div>
 
             <div class="summary-footer">
-
-                <div>
-                    <h2>06</h2>
-                    <p>Bài tập hoàn thành</p>
-                </div>
-
-                <div>
-                    <h2>100%</h2>
-                    <p>Tinh thần học tập</p>
-                </div>
-
-                <div>
-                    <h2>A+</h2>
-                    <p>Mục tiêu hướng tới</p>
-                </div>
-
+                <div><h2>06</h2><p>Bài tập hoàn thành</p></div>
+                <div><h2>100%</h2><p>Tinh thần học tập</p></div>
+                <div><h2>A+</h2><p>Mục tiêu hướng tới</p></div>
             </div>
-
         </div>
-
     </section>
 
-
-
-
-    <!-- ============ CONTACT ============ -->
     <section class="contact" id="contact">
         <div class="wrap">
-
-            <span class="eyebrow" style="background:var(--pink); color:#fff;">
-                📬 Kết nối
-            </span>
-
-            <h2 style="font-size:2.2rem; margin:14px 0;">
-                Cùng trò chuyện với mình nhé!
-            </h2>
-
-            <p style="color:#5a4a6a;">
-                Bạn có thể liên hệ với mình dưới đây.
-            </p>
+            <span class="eyebrow" style="background:var(--pink); color:#fff;">📬 Kết nối</span>
+            <h2 style="font-size:2.2rem; margin:14px 0;">Cùng trò chuyện với mình nhé!</h2>
+            <p style="color:#5a4a6a;">Bạn có thể liên hệ với mình dưới đây.</p>
 
             <div class="contact-grid">
-
-                <a class="contact-card" href="mailto:trantlys21@gmail.com">
-                    <span class="ic">✉️</span>
-                    trantlys21@gmail.com
-                </a>
-
-                <a class="contact-card" href="tel:0852914355">
-                    <span class="ic">📞</span>
-                    0852 914 355
-                </a>
-
-                <a class="contact-card"
-                   href="https://www.facebook.com/tranlys.2024"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    <span class="ic">📘</span>
-                    Facebook
-                </a>
-
-             
-
+                <a class="contact-card" href="mailto:trantlys21@gmail.com"><span class="ic">✉️</span>trantlys21@gmail.com</a>
+                <a class="contact-card" href="tel:0852914355"><span class="ic">📞</span>0852 914 355</a>
+                <a class="contact-card" href="https://www.facebook.com/tranlys.2024" target="_blank" rel="noopener noreferrer"><span class="ic">📘</span>Facebook</a>
             </div>
-
         </div>
     </section>
 
-    <footer>© 2026 Trần Thị Lý — Được tạo bởi tôi với 💜 và thật nhiều màu sắc.</footer>
+    <footer>© 2026 Trần Thị Lý — Được tạo bởi tôi với nhiều màu sắc.</footer>
+
+    <button id="themeBtn" type="button" aria-label="Đổi giao diện sáng tối">🌙</button>
+    <button id="topBtn" type="button" aria-label="Lên đầu trang">⬆</button>
+
+    <div id="lightbox">
+        <img id="lightboxImg" alt="Ảnh phóng to">
+    </div>
+
+    <div id="detailPopup" class="detail-popup" onclick="closeDetail()">
+        <div class="detail-content" onclick="event.stopPropagation()">
+            <button class="detail-close" type="button" onclick="closeDetail()">×</button>
+            <h3 id="detailTitle">Chi tiết bài tập</h3>
+            <p id="detailDesc"></p>
+            <ul id="detailList"></ul>
+        </div>
+    </div>
+
     <script>
+        const detailData = {
+            1: {
+                title: "Bài tập 1: Thao tác với tệp tin và thư mục",
+                desc: "Mục tiêu: Rèn luyện kỹ năng tạo, đổi tên, sao chép, di chuyển, xóa tệp tin và thư mục một cách thành thạo trên hệ điều hành Windows.",
+                items: ["Mở File Explorer.", "Truy cập ổ đĩa hoặc thư mục.", "Tạo thư mục mới.", "Vào thư mục vừa tạo.", "Tạo tệp tin văn bản.", "Đổi tên tệp tin.", "Tạo thư mục con.", "Sao chép tệp tin (Copy & Paste).", "Di chuyển tệp tin (Cut & Paste).", "Xóa tệp tin.", "Xóa vĩnh viễn.", "Khôi phục từ Thùng rác (tùy chọn)."]
+            },
+            2: {
+                title: "Bài tập 2: Tìm kiếm và đánh giá thông tin học thuật",
+                desc: "Mục tiêu: Phát triển kỹ năng tìm kiếm và đánh giá thông tin học thuật từ các nguồn đáng tin cậy.",
+                items: ["Chọn một chủ đề liên quan đến ngành học.", "Tìm kiếm thông tin từ Google Scholar, Microsoft Academic hoặc cơ sở dữ liệu của thư viện trường.", "Tìm kiếm tài liệu từ tạp chí khoa học chuyên ngành, sách chuyên khảo và các nguồn mở trên internet.", "Thu thập ít nhất 10 tài liệu tham khảo, bao gồm ít nhất 5 bài báo khoa học.", "Đánh giá độ tin cậy dựa trên tác giả, cơ quan xuất bản, phương pháp nghiên cứu, trích dẫn và tính cập nhật.", "Tạo bảng tổng hợp các nguồn thông tin kèm đánh giá và xếp hạng độ tin cậy."]
+            },
+            3: {
+                title: "Bài tập 3: Viết prompt hiệu quả",
+                desc: "Mục tiêu: Phát triển kỹ năng viết prompt hiệu quả để tận dụng khả năng của các mô hình ngôn ngữ lớn trong học tập.",
+                items: ["Chọn 3 tác vụ học tập: tóm tắt tài liệu, giải thích khái niệm phức tạp, tạo câu hỏi ôn tập.", "Với mỗi tác vụ, viết 3 phiên bản prompt: cơ bản, cải tiến và nâng cao.", "Áp dụng kỹ thuật như role prompting, chain-of-thought hoặc few-shot examples.", "Thử nghiệm các prompt với công cụ AI như ChatGPT và so sánh kết quả.", "Phân tích lý do prompt hiệu quả hơn và tổng hợp mẹo viết prompt."]
+            },
+            4: {
+                title: "Bài tập 4: Công cụ hợp tác trực tuyến",
+                desc: "Mục tiêu: Thành thạo các công cụ hợp tác trực tuyến và thể hiện năng lực quản lý, điều phối cá nhân trong dự án nhóm.",
+                items: ["Làm việc cùng nhóm để thực hiện một dự án nhỏ, tập trung vào vai trò cá nhân.", "Sử dụng ít nhất 3 công cụ hợp tác trực tuyến: quản lý dự án, soạn thảo, lưu trữ hoặc giao tiếp.", "Tự quản lý nhiệm vụ được giao trên công cụ quản lý.", "Đóng góp nội dung trực tiếp trên tài liệu cộng tác.", "Tương tác, thảo luận chủ động với các thành viên khác.", "Tổ chức và lưu trữ các tệp tin cá nhân phụ trách một cách khoa học.", "Ghi lại nhật ký minh chứng bằng ảnh chụp màn hình có tên tài khoản hoặc phần đóng góp cá nhân."]
+            },
+            5: {
+                title: "Bài tập 5: Sử dụng AI tạo sinh",
+                desc: "Mục tiêu: Thành thạo việc sử dụng các công cụ AI tạo sinh để hỗ trợ quá trình sáng tạo nội dung số.",
+                items: ["Chọn một dự án sáng tạo nội dung như bài thuyết trình, bài viết, infographic hoặc video ngắn.", "Sử dụng ít nhất 3 công cụ AI tạo sinh khác nhau để hỗ trợ sáng tạo.", "Ghi lại prompt đã sử dụng và kết quả nhận được.", "Chỉnh sửa, tích hợp đầu ra của AI và so sánh kết quả từ các công cụ khác nhau.", "Hoàn thiện dự án bằng cách kết hợp AI với đóng góp sáng tạo cá nhân.", "Viết phân tích về vai trò của AI trong quá trình sáng tạo."]
+            },
+            6: {
+                title: "Bài tập 6: Sử dụng AI có trách nhiệm",
+                desc: "Mục tiêu: Phát triển kỹ năng sử dụng AI có trách nhiệm và đạo đức trong học tập và nghiên cứu.",
+                items: ["Nghiên cứu chính sách của trường đại học về việc sử dụng AI trong học tập và nghiên cứu.", "Chọn một nhiệm vụ học tập và thực hiện với sự hỗ trợ của AI.", "Phân tích các vấn đề đạo đức liên quan đến việc sử dụng AI trong học thuật.", "Xây dựng bộ nguyên tắc cá nhân gồm 5 đến 7 nguyên tắc về cách sử dụng AI có trách nhiệm.", "Tạo infographic minh họa chủ đề 'Sử dụng AI có trách nhiệm trong học thuật'."]
+            }
+        };
+
+        function toggleMenu() {
+            document.getElementById("navLinks").classList.toggle("show");
+        }
+
+        function openDetail(id) {
+            const data = detailData[id];
+            const list = document.getElementById("detailList");
+            document.getElementById("detailTitle").textContent = data.title;
+            document.getElementById("detailDesc").textContent = data.desc;
+            list.innerHTML = "";
+            data.items.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+            document.getElementById("detailPopup").classList.add("show");
+        }
+
+        function closeDetail() {
+            document.getElementById("detailPopup").classList.remove("show");
+        }
 
         const observer = new IntersectionObserver(entries => {
-
             entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("show");
-
-                }
-
+                if (entry.isIntersecting) entry.target.classList.add("show");
             });
-
         });
 
-        document.querySelectorAll("section").forEach(sec => {
-
-            sec.classList.add("hidden");
-
-            observer.observe(sec);
-
+        document.querySelectorAll("section").forEach(section => {
+            section.classList.add("hidden");
+            observer.observe(section);
         });
 
-    </script>
-    <button id="topBtn">⬆</button>
-    <script>
+        const topBtn = document.getElementById("topBtn");
+        const themeBtn = document.getElementById("themeBtn");
+        const typingTarget = document.getElementById("typing");
+        const typingText = "Xin chào, mình là Trần Thị Lý 👋";
+        let typingIndex = 0;
 
-        const btn = document.getElementById("topBtn");
-
-        window.onscroll = function () {
-
-            btn.style.display = window.scrollY > 400 ? "block" : "none";
-
+        function typing() {
+            if (typingIndex >= typingText.length) return;
+            typingTarget.textContent += typingText.charAt(typingIndex);
+            typingIndex++;
+            setTimeout(typing, 80);
         }
 
-        btn.onclick = function () {
+        typing();
 
-            window.scrollTo({
+        window.addEventListener("scroll", () => {
+            const html = document.documentElement;
+            const progress = html.scrollTop / (html.scrollHeight - html.clientHeight);
+            document.getElementById("scrollProgress").style.width = `${progress * 100}%`;
+            topBtn.style.display = window.scrollY > 400 ? "block" : "none";
+        });
 
-                top: 0,
+        topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-                behavior: "smooth"
+        if (localStorage.theme === "dark") {
+            document.body.classList.add("dark");
+            themeBtn.textContent = "☀";
+        }
 
+        themeBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+            const isDark = document.body.classList.contains("dark");
+            themeBtn.textContent = isDark ? "☀" : "🌙";
+            localStorage.theme = isDark ? "dark" : "light";
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") {
+                closeDetail();
+                document.getElementById("lightbox").classList.remove("show");
+            }
+        });
+
+        const photo = document.querySelector(".polaroid img");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+        const card = document.querySelector(".polaroid");
+
+        photo.addEventListener("click", () => {
+            lightbox.classList.add("show");
+            lightboxImg.src = photo.src;
+        });
+
+        lightbox.addEventListener("click", () => {
+            lightbox.classList.remove("show");
+        });
+
+        card.addEventListener("mouseenter", () => {
+            for (let i = 0; i < 8; i++) {
+                const heart = document.createElement("div");
+                heart.className = "heart";
+                heart.textContent = "💖";
+                heart.style.left = `${Math.random() * 250}px`;
+                heart.style.top = `${Math.random() * 250}px`;
+                card.appendChild(heart);
+                setTimeout(() => heart.remove(), 2000);
+            }
+        });
+
+        document.querySelectorAll(".btn").forEach(button => {
+            button.addEventListener("mousemove", event => {
+                const rect = button.getBoundingClientRect();
+                const x = event.clientX - rect.left - rect.width / 2;
+                const y = event.clientY - rect.top - rect.height / 2;
+                button.style.transform = `translate(${x * .18}px, ${y * .18}px)`;
             });
 
+            button.addEventListener("mouseleave", () => {
+                button.style.transform = "";
+            });
+        });
+
+        document.addEventListener("click", event => {
+            for (let i = 0; i < 10; i++) {
+                const spark = document.createElement("div");
+                spark.className = "spark";
+                spark.style.left = `${event.clientX + Math.random() * 50 - 25}px`;
+                spark.style.top = `${event.clientY + Math.random() * 50 - 25}px`;
+                spark.style.animationDelay = `${Math.random() * .2}s`;
+                document.body.appendChild(spark);
+                setTimeout(() => spark.remove(), 900);
+            }
+        });
+
+        const petalBox = document.getElementById("petals");
+
+        function createPetal() {
+            const petal = document.createElement("div");
+            const size = 10 + Math.random() * 18;
+            const duration = 8 + Math.random() * 8;
+
+            petal.className = "petal";
+            petal.style.left = `${Math.random() * window.innerWidth}px`;
+            petal.style.width = `${size}px`;
+            petal.style.height = `${size}px`;
+            petal.style.animationDuration = `${duration}s`;
+            petalBox.appendChild(petal);
+
+            setTimeout(() => petal.remove(), duration * 1000);
         }
 
+        setInterval(createPetal, 500);
+
+        const butterflyBox = document.getElementById("butterflies");
+
+        for (let i = 0; i < 5; i++) {
+            const butterfly = document.createElement("div");
+            butterfly.className = "butterfly";
+            butterfly.textContent = "🦋";
+            butterfly.style.animationDuration = `${18 + Math.random() * 8}s`;
+            butterfly.style.animationDelay = `${Math.random() * 8}s`;
+            butterfly.style.fontSize = `${22 + Math.random() * 20}px`;
+            butterflyBox.appendChild(butterfly);
+        }
+
+        document.addEventListener("mousemove", event => {
+            document.querySelectorAll(".butterfly").forEach(item => {
+                const x = item.getBoundingClientRect().left;
+                const y = item.getBoundingClientRect().top;
+                const dx = x - event.clientX;
+                const dy = y - event.clientY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                item.style.transform = distance < 120 ? `translate(${dx / 4}px, ${dy / 4}px)` : "";
+            });
+        });
+
+        const canvas = document.getElementById("particleCanvas");
+        const ctx = canvas.getContext("2d");
+        const particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function resetParticles() {
+            particles.length = 0;
+
+            for (let i = 0; i < 70; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - .5) * .4,
+                    vy: (Math.random() - .5) * .4,
+                    r: Math.random() * 2 + 1
+                });
+            }
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+
+                if (particle.x < 0) particle.x = canvas.width;
+                if (particle.x > canvas.width) particle.x = 0;
+                if (particle.y < 0) particle.y = canvas.height;
+                if (particle.y > canvas.height) particle.y = 0;
+
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
+                ctx.fillStyle = "rgba(255,120,180,.5)";
+                ctx.fill();
+            });
+
+            requestAnimationFrame(drawParticles);
+        }
+
+        resizeCanvas();
+        resetParticles();
+        drawParticles();
+
+        window.addEventListener("resize", () => {
+            resizeCanvas();
+            resetParticles();
+        });
+
+        const fireBox = document.getElementById("fireflies");
+
+        for (let i = 0; i < 20; i++) {
+            const firefly = document.createElement("div");
+            firefly.className = "firefly";
+            firefly.style.left = `${Math.random() * 100}vw`;
+            firefly.style.animationDuration = `${10 + Math.random() * 10}s`;
+            firefly.style.animationDelay = `${Math.random() * 10}s`;
+            fireBox.appendChild(firefly);
+        }
+
+        document.querySelectorAll(".summary-footer h2").forEach(el => {
+            const text = el.textContent.trim();
+
+            if (!text.includes("%")) return;
+
+            const end = parseInt(text, 10);
+            let value = 0;
+            el.textContent = "0%";
+
+            const counterObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+
+                    const timer = setInterval(() => {
+                        value++;
+                        el.textContent = `${value}%`;
+
+                        if (value >= end) clearInterval(timer);
+                    }, 20);
+
+                    counterObserver.disconnect();
+                });
+            });
+
+            counterObserver.observe(el);
+        });
+
+        let confettiDone = false;
+
+        window.addEventListener("scroll", () => {
+            if (confettiDone) return;
+            if (window.innerHeight + window.scrollY <= document.body.offsetHeight - 80) return;
+
+            confettiDone = true;
+
+            for (let i = 0; i < 120; i++) {
+                const confetti = document.createElement("div");
+                confetti.style.position = "fixed";
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.top = "-20px";
+                confetti.style.width = "8px";
+                confetti.style.height = "8px";
+                confetti.style.background = `hsl(${Math.random() * 360},100%,60%)`;
+                confetti.style.pointerEvents = "none";
+                confetti.style.zIndex = "999999";
+                confetti.style.transition = "4s linear";
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.style.transform = `translateY(${window.innerHeight + 120}px) rotate(720deg)`;
+                }, 20);
+
+                setTimeout(() => confetti.remove(), 4200);
+            }
+        });
     </script>
-    <script>
-
-/* ===========================
-   HOA ANH ĐÀO
-=========================== */
-
-const petalBox=document.getElementById("petals");
-
-function createPetal(){
-
-const p=document.createElement("div");
-
-p.className="petal";
-
-p.style.left=Math.random()*window.innerWidth+"px";
-
-const size=10+Math.random()*18;
-
-p.style.width=size+"px";
-p.style.height=size+"px";
-
-const t=8+Math.random()*8;
-
-p.style.animationDuration=t+"s";
-
-petalBox.appendChild(p);
-
-setTimeout(()=>{
-
-p.remove();
-
-},t*1000);
-
-}
-
-setInterval(createPetal,500);
-
-
-
-/* ===========================
-   BƯỚM
-=========================== */
-
-const butterflyBox=document.getElementById("butterflies");
-
-for(let i=0;i<5;i++){
-
-const b=document.createElement("div");
-
-b.className="butterfly";
-
-b.innerHTML="🦋";
-
-b.style.animationDuration=(18+Math.random()*8)+"s";
-
-b.style.animationDelay=(Math.random()*8)+"s";
-
-b.style.fontSize=(22+Math.random()*20)+"px";
-
-butterflyBox.appendChild(b);
-
-}
-
-
-/* ===========================
-   BƯỚM TRÁNH CHUỘT
-=========================== */
-
-document.addEventListener("mousemove",e=>{
-
-document.querySelectorAll(".butterfly").forEach(item=>{
-
-const x=item.getBoundingClientRect().left;
-
-const y=item.getBoundingClientRect().top;
-
-const dx=x-e.clientX;
-
-const dy=y-e.clientY;
-
-const d=Math.sqrt(dx*dx+dy*dy);
-
-if(d<120){
-
-item.style.transform=
-`translate(${dx/4}px,${dy/4}px)`;
-
-}else{
-
-item.style.transform="";
-
-}
-
-});
-
-});
-
-</script>
-    <!-- Progress Bar -->
-<div id="scrollProgress"></div>
-
-
-
-<!-- Dark Mode -->
-<button id="themeBtn">🌙</button>
-
-<!-- Sparkle -->
-<div id="sparkles"></div>
-    <script>
-
-/* ==========================
-SCROLL PROGRESS
-========================== */
-
-window.addEventListener("scroll",()=>{
-
-const h=document.documentElement;
-
-const sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight);
-
-document.getElementById("scrollProgress").style.width=(sc*100)+"%";
-
-});
-
-
-
-/* ==========================
-SPARKLE CLICK
-========================== */
-
-document.addEventListener("click",e=>{
-
-for(let i=0;i<10;i++){
-
-const s=document.createElement("div");
-
-s.className="spark";
-
-s.style.left=(e.clientX+(Math.random()*50-25))+"px";
-
-s.style.top=(e.clientY+(Math.random()*50-25))+"px";
-
-s.style.animationDelay=(Math.random()*.2)+"s";
-
-document.body.appendChild(s);
-
-setTimeout(()=>{
-
-s.remove();
-
-},900);
-
-}
-
-});
-
-
-/* ==========================
-DARK MODE
-========================== */
-
-const themeBtn=document.getElementById("themeBtn");
-
-if(localStorage.theme==="dark"){
-
-document.body.classList.add("dark");
-
-themeBtn.innerHTML="☀";
-
-}
-
-themeBtn.onclick=()=>{
-
-document.body.classList.toggle("dark");
-
-if(document.body.classList.contains("dark")){
-
-themeBtn.innerHTML="☀";
-
-localStorage.theme="dark";
-
-}else{
-
-themeBtn.innerHTML="🌙";
-
-localStorage.theme="light";
-
-}
-
-};
-
-</script>
-    <div id="lightbox">
-    <img id="lightboxImg">
-</div>
-    <script>
-
-/* ==========================
-Typing Effect
-========================== */
-
-const text="Xin chào, mình là Trần Thị Lý  👋";
-
-let i=0;
-
-function typing(){
-
-if(i<text.length){
-
-document.getElementById("typing").innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(typing,80);
-
-}
-
-}
-
-typing();
-
-
-/* ==========================
-Counter
-========================== */
-
-
-
-
-
-/* ==========================
-Lightbox
-========================== */
-
-const photo=document.querySelector(".polaroid img");
-
-const lightbox=document.getElementById("lightbox");
-
-const lightboxImg=document.getElementById("lightboxImg");
-
-photo.onclick=()=>{
-
-lightbox.classList.add("show");
-
-lightboxImg.src=photo.src;
-
-}
-
-lightbox.onclick=()=>{
-
-lightbox.classList.remove("show");
-
-}
-
-document.addEventListener("keydown",e=>{
-
-if(e.key==="Escape"){
-
-lightbox.classList.remove("show");
-
-}
-
-});
-
-
-/* ==========================
-Heart
-========================== */
-
-const card=document.querySelector(".polaroid");
-
-card.addEventListener("mouseenter",()=>{
-
-for(let i=0;i<8;i++){
-
-const h=document.createElement("div");
-
-h.className="heart";
-
-h.innerHTML="💖";
-
-h.style.left=Math.random()*250+"px";
-
-h.style.top=Math.random()*250+"px";
-
-card.appendChild(h);
-
-setTimeout(()=>{
-
-h.remove();
-
-},2000);
-
-}
-
-});
-
-
-/* ==========================
-Magnetic Button
-========================== */
-
-document.querySelectorAll(".btn").forEach(btn=>{
-
-btn.addEventListener("mousemove",e=>{
-
-const rect=btn.getBoundingClientRect();
-
-const x=e.clientX-rect.left-rect.width/2;
-
-const y=e.clientY-rect.top-rect.height/2;
-
-btn.style.transform=
-
-`translate(${x*.18}px,${y*.18}px)`;
-
-});
-
-btn.addEventListener("mouseleave",()=>{
-
-btn.style.transform="";
-
-});
-
-});
-
-</script>
-    <script>
-
-/* ======================================
-PARTICLE BACKGROUND
-====================================== */
-
-const canvas=document.getElementById("particleCanvas");
-
-const ctx=canvas.getContext("2d");
-
-function resize(){
-
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-}
-
-resize();
-
-window.addEventListener("resize",resize);
-
-const particles=[];
-
-for(let i=0;i<70;i++){
-
-particles.push({
-
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-
-vx:(Math.random()-.5)*0.4,
-vy:(Math.random()-.5)*0.4,
-
-r:Math.random()*2+1
-
-});
-
-}
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-particles.forEach(p=>{
-
-p.x+=p.vx;
-p.y+=p.vy;
-
-if(p.x<0)p.x=canvas.width;
-if(p.x>canvas.width)p.x=0;
-
-if(p.y<0)p.y=canvas.height;
-if(p.y>canvas.height)p.y=0;
-
-ctx.beginPath();
-
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-
-ctx.fillStyle="rgba(255,120,180,.5)";
-
-ctx.fill();
-
-});
-
-requestAnimationFrame(draw);
-
-}
-
-draw();
-
-
-
-/* ======================================
-FIREFLIES
-====================================== */
-
-const fire=document.getElementById("fireflies");
-
-for(let i=0;i<20;i++){
-
-const f=document.createElement("div");
-
-f.className="firefly";
-
-f.style.left=Math.random()*100+"vw";
-
-f.style.animationDuration=(10+Math.random()*10)+"s";
-
-f.style.animationDelay=Math.random()*10+"s";
-
-fire.appendChild(f);
-
-}
-
-
-
-/* ======================================
-COUNTER FIX
-====================================== */
-
-document.querySelectorAll(".summary-footer h2").forEach(el=>{
-
-const txt=el.textContent.trim();
-
-if(txt.includes("%")){
-
-const end=parseInt(txt);
-
-el.textContent="0%";
-
-let n=0;
-
-const ob=new IntersectionObserver(entries=>{
-
-entries.forEach(e=>{
-
-if(e.isIntersecting){
-
-const timer=setInterval(()=>{
-
-n++;
-
-el.textContent=n+"%";
-
-if(n>=end){
-
-clearInterval(timer);
-
-}
-
-},20);
-
-ob.disconnect();
-
-}
-
-});
-
-});
-
-ob.observe(el);
-
-}
-
-});
-
-
-
-/* ======================================
-CONFETTI
-====================================== */
-
-let done=false;
-
-window.addEventListener("scroll",()=>{
-
-if(done) return;
-
-if(window.innerHeight+window.scrollY>
-
-document.body.offsetHeight-80){
-
-done=true;
-
-for(let i=0;i<120;i++){
-
-const c=document.createElement("div");
-
-c.style.position="fixed";
-
-c.style.left=Math.random()*100+"vw";
-
-c.style.top="-20px";
-
-c.style.width="8px";
-
-c.style.height="8px";
-
-c.style.background=
-`hsl(${Math.random()*360},100%,60%)`;
-
-c.style.pointerEvents="none";
-
-c.style.zIndex=999999;
-
-c.style.transition="4s linear";
-
-document.body.appendChild(c);
-
-setTimeout(()=>{
-
-c.style.transform=
-`translateY(${window.innerHeight+120}px)
-rotate(720deg)`;
-
-},20);
-
-setTimeout(()=>{
-
-c.remove();
-
-},4200);
-
-}
-
-}
-
-});
-
-</script>
-                <div id="detailPopup" class="detail-popup" onclick="closeDetail()">
-    <div class="detail-content" onclick="event.stopPropagation()">
-        <button class="detail-close" onclick="closeDetail()">×</button>
-        <h3 id="detailTitle">Chi tiết bài tập</h3>
-        <p id="detailDesc"></p>
-        <ul id="detailList"></ul>
-    </div>
-</div>
-                <script>
-const detailData = {
-    1: {
-        title: "Bài tập 1: Thao tác với tệp tin và thư mục",
-        desc: "Mục tiêu: Rèn luyện kỹ năng tạo, đổi tên, sao chép, di chuyển, xóa tệp tin và thư mục một cách thành thạo trên hệ điều hành Windows.",
-        items: [
-            "Mở File Explorer.",
-            "Truy cập ổ đĩa hoặc thư mục.",
-            "Tạo thư mục mới.",
-            "Vào thư mục vừa tạo.",
-            "Tạo tệp tin văn bản.",
-            "Đổi tên tệp tin.",
-            "Tạo thư mục con.",
-            "Sao chép tệp tin (Copy & Paste).",
-            "Di chuyển tệp tin (Cut & Paste).",
-            "Xóa tệp tin.",
-            "Xóa vĩnh viễn.",
-            "Khôi phục từ Thùng rác (tùy chọn)."
-        ]
-    },
-    2: {
-        title: "Bài tập 2: Tìm kiếm và đánh giá thông tin học thuật",
-        desc: "Mục tiêu: Phát triển kỹ năng tìm kiếm và đánh giá thông tin học thuật từ các nguồn đáng tin cậy.",
-        items: [
-            "Chọn một chủ đề liên quan đến ngành học.",
-            "Tìm kiếm thông tin từ cơ sở dữ liệu học thuật như Google Scholar, Microsoft Academic hoặc cơ sở dữ liệu của thư viện trường.",
-            "Tìm kiếm tài liệu từ tạp chí khoa học chuyên ngành.",
-            "Tìm kiếm tài liệu từ sách chuyên khảo.",
-            "Tham khảo thêm các nguồn mở trên internet.",
-            "Thu thập ít nhất 10 tài liệu tham khảo liên quan đến chủ đề, bao gồm ít nhất 5 bài báo khoa học.",
-            "Đánh giá độ tin cậy của mỗi nguồn dựa trên các tiêu chí: tác giả, cơ quan xuất bản, phương pháp nghiên cứu, trích dẫn và tính cập nhật.",
-            "Tạo bảng tổng hợp các nguồn thông tin kèm đánh giá và xếp hạng độ tin cậy."
-        ]
-    },
-    3: {
-        title: "Bài tập 3: Viết prompt hiệu quả",
-        desc: "Mục tiêu: Phát triển kỹ năng viết prompt hiệu quả để tận dụng tối đa khả năng của các mô hình ngôn ngữ lớn trong học tập.",
-        items: [
-            "Chọn 3 tác vụ học tập phổ biến.",
-            "Tác vụ 1: Tóm tắt một bài đọc hoặc tài liệu học thuật.",
-            "Tác vụ 2: Giải thích một khái niệm phức tạp.",
-            "Tác vụ 3: Tạo bộ câu hỏi ôn tập cho một chủ đề.",
-            "Với mỗi tác vụ, viết 3 phiên bản prompt khác nhau.",
-            "Prompt cơ bản: đơn giản, ngắn gọn.",
-            "Prompt cải tiến: chi tiết hơn, có cấu trúc.",
-            "Prompt nâng cao: áp dụng kỹ thuật prompt engineering như role prompting, chain-of-thought hoặc few-shot examples.",
-            "Thử nghiệm các prompt với một công cụ AI như ChatGPT và so sánh kết quả.",
-            "Phân tích lý do vì sao một số prompt hiệu quả hơn các prompt khác.",
-            "Tổng hợp các nguyên tắc và mẹo viết prompt hiệu quả dựa trên kết quả thử nghiệm."
-        ]
-    },
-    4: {
-        title: "Bài tập 4: Công cụ hợp tác trực tuyến",
-        desc: "Mục tiêu: Thành thạo các công cụ hợp tác trực tuyến và thể hiện năng lực quản lý, điều phối cá nhân trong dự án nhóm.",
-        items: [
-            "Làm việc cùng nhóm để thực hiện một dự án nhỏ, tập trung vào vai trò và trải nghiệm cá nhân.",
-            "Tham gia thiết lập hoặc sử dụng ít nhất 3 công cụ hợp tác trực tuyến.",
-            "Sử dụng công cụ quản lý dự án như Trello, Asana, ClickUp hoặc Microsoft Planner.",
-            "Sử dụng công cụ soạn thảo tài liệu cộng tác như Google Docs hoặc Microsoft Office Online.",
-            "Sử dụng công cụ lưu trữ và chia sẻ tệp như Google Drive, OneDrive hoặc Dropbox.",
-            "Sử dụng công cụ giao tiếp nhóm như Slack, Discord hoặc Microsoft Teams.",
-            "Tự quản lý danh sách nhiệm vụ được giao trên công cụ quản lý.",
-            "Có lịch sử chỉnh sửa và đóng góp nội dung trực tiếp trên tài liệu cộng tác.",
-            "Tương tác, thảo luận chủ động với các thành viên khác trên công cụ giao tiếp.",
-            "Tổ chức và lưu trữ các tệp tin cá nhân phụ trách một cách khoa học.",
-            "Ghi lại nhật ký minh chứng, bao gồm ảnh chụp màn hình thể hiện rõ tên tài khoản hoặc phần đóng góp cá nhân."
-        ]
-    },
-    5: {
-        title: "Bài tập 5: Sử dụng AI tạo sinh",
-        desc: "Mục tiêu: Thành thạo việc sử dụng các công cụ AI tạo sinh để hỗ trợ quá trình sáng tạo nội dung số.",
-        items: [
-            "Chọn một dự án sáng tạo nội dung như bài thuyết trình, bài viết, infographic hoặc video ngắn.",
-            "Sử dụng ít nhất 3 công cụ AI tạo sinh khác nhau để hỗ trợ quá trình sáng tạo.",
-            "Ghi lại các prompt đã sử dụng và kết quả nhận được.",
-            "Trình bày cách chỉnh sửa và tích hợp đầu ra của AI vào sản phẩm.",
-            "So sánh kết quả từ các công cụ AI khác nhau.",
-            "Hoàn thiện dự án bằng cách kết hợp đầu ra của AI với đóng góp sáng tạo cá nhân.",
-            "Viết phân tích về vai trò của AI trong quá trình sáng tạo."
-        ]
-    },
-    6: {
-        title: "Bài tập 6: Sử dụng AI có trách nhiệm",
-        desc: "Mục tiêu: Phát triển kỹ năng sử dụng AI có trách nhiệm và đạo đức trong học tập và nghiên cứu.",
-        items: [
-            "Nghiên cứu chính sách của trường đại học về việc sử dụng AI trong học tập và nghiên cứu.",
-            "Chọn một nhiệm vụ học tập như viết bài luận, chuẩn bị thuyết trình hoặc tổng hợp tài liệu.",
-            "Thực hiện nhiệm vụ học tập với sự hỗ trợ của AI.",
-            "Phân tích các vấn đề đạo đức liên quan đến việc sử dụng AI trong học thuật.",
-            "Xây dựng bộ nguyên tắc cá nhân gồm 5 đến 7 nguyên tắc về cách sử dụng AI có trách nhiệm trong học tập.",
-            "Tạo một infographic minh họa chủ đề 'Sử dụng AI có trách nhiệm trong học thuật'."
-        ]
-    }
-};
-
-function openDetail(id) {
-    const data = detailData[id];
-
-    document.getElementById("detailTitle").textContent = data.title;
-    document.getElementById("detailDesc").textContent = data.desc;
-
-    const list = document.getElementById("detailList");
-    list.innerHTML = "";
-
-    data.items.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        list.appendChild(li);
-    });
-
-    document.getElementById("detailPopup").classList.add("show");
-}
-
-function closeDetail() {
-    document.getElementById("detailPopup").classList.remove("show");
-}
-
-document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") {
-        closeDetail();
-    }
-});
-</script>
 </body>
 </html>
