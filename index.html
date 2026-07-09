@@ -40,6 +40,10 @@
             animation: bgGradient 18s ease infinite;
         }
 
+        body.modal-open {
+            overflow: hidden;
+        }
+
         body::before {
             content: "";
             position: fixed;
@@ -268,6 +272,43 @@
             opacity: .5;
         }
 
+        .hero-deco {
+            position: absolute;
+            z-index: 0;
+            display: grid;
+            place-items: center;
+            width: clamp(82px, 12vw, 150px);
+            height: clamp(82px, 12vw, 150px);
+            border: 3px solid var(--ink);
+            border-radius: 26px;
+            background: rgba(255, 248, 239, .9);
+            box-shadow: 8px 8px 0 var(--ink);
+            font-size: clamp(2.6rem, 6vw, 5rem);
+            animation: decoFloat 7s ease-in-out infinite;
+        }
+
+        .hero-deco.tree {
+            top: 12%;
+            right: 8%;
+            transform: rotate(8deg);
+        }
+
+        .hero-deco.book {
+            bottom: 12%;
+            left: 5%;
+            animation-delay: 1.5s;
+            transform: rotate(-7deg);
+        }
+
+        .hero-deco.lamp {
+            right: 34%;
+            bottom: 18%;
+            width: clamp(68px, 9vw, 112px);
+            height: clamp(68px, 9vw, 112px);
+            animation-delay: 3s;
+            transform: rotate(10deg);
+        }
+
         .polaroid-stack {
             position: relative;
             height: clamp(340px, 50vw, 500px);
@@ -479,6 +520,7 @@
             align-items: center;
             justify-content: center;
             background: rgba(25, 23, 37, .86);
+            overscroll-behavior: contain;
         }
 
         .detail-popup.show {
@@ -495,6 +537,7 @@
             border-radius: 24px;
             box-shadow: 14px 14px 0 var(--pink);
             animation: popupIn .25s ease;
+            overscroll-behavior: contain;
         }
 
         .detail-content h3 {
@@ -871,6 +914,16 @@
             50% { transform: translateY(-18px); }
         }
 
+        @keyframes decoFloat {
+            0%, 100% {
+                translate: 0 0;
+            }
+
+            50% {
+                translate: 0 -16px;
+            }
+        }
+
         @keyframes photoFloat {
             0%, 100% { transform: translateY(0) rotate(-7deg); }
             50% { transform: translateY(-6px) rotate(-7deg); }
@@ -964,9 +1017,9 @@
     </nav>
 
     <header class="hero" id="top">
-        <div class="blob blob1"></div>
-        <div class="blob blob2"></div>
-        <div class="blob blob3"></div>
+        <div class="hero-deco tree" aria-hidden="true">🌳</div>
+        <div class="hero-deco book" aria-hidden="true">📚</div>
+        <div class="hero-deco lamp" aria-hidden="true">💡</div>
 
         <div class="hero-inner">
             <div>
@@ -1194,10 +1247,12 @@
                 list.appendChild(li);
             });
             document.getElementById("detailPopup").classList.add("show");
+            document.body.classList.add("modal-open");
         }
 
         function closeDetail() {
             document.getElementById("detailPopup").classList.remove("show");
+            document.body.classList.remove("modal-open");
         }
 
         const observer = new IntersectionObserver(entries => {
