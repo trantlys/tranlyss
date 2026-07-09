@@ -1245,77 +1245,97 @@ background:rgba(123,47,247,.18);
    DARK MODE
 ========================= */
 
-#themeBtn{
-
-position:fixed;
-
-right:20px;
-bottom:95px;
-
-width:56px;
-height:56px;
-
-border:none;
-
-border-radius:50%;
-
-font-size:23px;
-
-cursor:pointer;
-
-background:white;
-
-box-shadow:0 8px 18px rgba(0,0,0,.18);
-
-z-index:99999;
-
-transition:.3s;
-
+#themeBtn {
+    position: fixed;
+    right: 20px;
+    bottom: 95px;
+    width: 56px;
+    height: 56px;
+    border: none;
+    border-radius: 50%;
+    font-size: 23px;
+    cursor: pointer;
+    background: white;
+    color: #241536;
+    box-shadow: 0 8px 18px rgba(0,0,0,.18);
+    z-index: 99999;
+    transition: .3s;
 }
 
-#themeBtn:hover{
-
-transform:rotate(20deg) scale(1.08);
-
+#themeBtn:hover {
+    transform: rotate(20deg) scale(1.08);
 }
 
-
-/* Dark */
-
-.dark{
-
-background:#191725 !important;
-
-color:white;
-
+.dark {
+    background: #191725 !important;
+    color: #ffffff !important;
 }
 
-.dark nav{
+.dark h1,
+.dark h2,
+.dark h3,
+.dark p,
+.dark li,
+.dark span,
+.dark a,
+.dark b,
+.dark figcaption {
+    color: #ffffff !important;
+}
 
-background:rgba(25,23,37,.92);
+.dark .lede,
+.dark .bio p,
+.dark .summary-box p,
+.dark .section-head p,
+.dark .contact p,
+.dark footer {
+    color: #f1f1f1 !important;
+}
 
+.dark nav,
+.dark .about,
+.dark .overview,
+.dark .contact,
+.dark footer {
+    background: #191725 !important;
+}
+
+.dark .homework {
+    background: #11101a !important;
 }
 
 .dark .info-card,
+.dark .homework-box,
+.dark .skill-card,
 .dark .summary-box,
-.dark .contact-card,
-.dark .skill-card{
-
-background:#2b273d;
-
-color:white;
-
+.dark .contact-card {
+    background: #252235 !important;
+    color: #ffffff !important;
 }
 
-.dark .homework-box{
-
-background:#2b273d;
-
-color:white;
-
+.dark .btn-primary {
+    background: #ff3d7f !important;
+    color: #ffffff !important;
 }
 
+.dark .btn-secondary {
+    background: #ffffff !important;
+    color: #241536 !important;
+}
 
+.dark .chip {
+    color: #ffffff !important;
+}
+
+.dark .ic {
+    background: #7b2ff7 !important;
+    color: #ffffff !important;
+}
+
+.dark #themeBtn {
+    background: #ffffff;
+    color: #241536;
+}
 /* =========================
    SPARKLE
 ========================= */
@@ -1838,19 +1858,19 @@ nav{
             <div class="summary-grid">
 
                 <div class="summary-box">
-                    <h3>📚 Điều mình học được</h3>
+                    <h3>📚 Trải nghiệm trong quá trình thực hiện Portfolio</h3>
 
                     <p>
-                        Trải nghiệm trong quá trình thực hiện Portfolio
+                       
 Trong quá trình xây dựng Portfolio, tôi đã có cơ hội hệ thống lại những kiến thức đã học và vận dụng chúng vào các sản phẩm thực tế. Đây là trải nghiệm giúp tôi hiểu rõ hơn cách ứng dụng công nghệ số và AI trong học tập, đồng thời rèn luyện tính chủ động, sáng tạo và khả năng tự học.
                     </p>
                 </div>
 
                 <div class="summary-box">
-                    <h3>🌱 Quá trình phát triển</h3>
+                    <h3>🌱 Kiến thức và kỹ năng đạt được; Điều tâm đắc và những thách thức</h3>
 
                     <p>
-                        Kiến thức và kỹ năng đạt được; Điều tâm đắc và những thách thức
+                      
 Qua học phần, tôi đã nắm được những kiến thức cơ bản về chuyển đổi số, trí tuệ nhân tạo và vai trò của công nghệ trong học tập cũng như cuộc sống. Bên cạnh đó, tôi cũng phát triển các kỹ năng quan trọng như tìm kiếm và đánh giá thông tin, sử dụng các công cụ AI một cách hiệu quả, làm việc trên nền tảng số và trình bày nội dung trực quan.
 
 Điều tôi tâm đắc nhất là nhận thức được rằng AI không chỉ là một công cụ hỗ trợ mà còn là động lực thúc đẩy việc học tập và phát triển bản thân. Thách thức lớn nhất trong quá trình thực hiện Portfolio là lựa chọn, tổng hợp và trình bày nội dung sao cho logic, ngắn gọn và có tính thẩm mỹ. Tuy nhiên, những khó khăn đó đã giúp tôi nâng cao kỹ năng tổ chức thông tin và sử dụng công nghệ hiệu quả hơn.
@@ -2179,7 +2199,7 @@ localStorage.theme="light";
 Typing Effect
 ========================== */
 
-const text="Xin chào, mình là Trần Lý 👋";
+const text="Xin chào, mình là Trần Thị Lý NGU 👋";
 
 let i=0;
 
