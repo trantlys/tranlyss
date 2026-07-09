@@ -1010,44 +1010,585 @@
                 transform: translateY(0);
             }
         }
-    </style>
+        /* ========================= */
+/* HOA ANH ĐÀO */
+/* ========================= */
+
+#petals{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+}
+
+.petal{
+    position:absolute;
+    top:-50px;
+    width:18px;
+    height:18px;
+    background:linear-gradient(135deg,#ff9ac2,#ff4f8a);
+    border-radius:70% 0 70% 0;
+    opacity:.85;
+    animation:fall linear forwards;
+    filter:drop-shadow(0 0 6px rgba(255,90,150,.35));
+}
+
+@keyframes fall{
+
+    0%{
+        transform:
+        translateY(-50px)
+        rotate(0deg);
+    }
+
+    100%{
+        transform:
+        translateY(110vh)
+        translateX(120px)
+        rotate(720deg);
+    }
+
+}
+
+
+/* ========================= */
+/* BƯỚM */
+/* ========================= */
+
+#butterflies{
+
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:2;
+
+}
+
+.butterfly{
+
+    position:absolute;
+    font-size:28px;
+    animation:fly linear infinite;
+    filter:drop-shadow(0 0 10px rgba(255,105,180,.4));
+
+}
+
+@keyframes fly{
+
+0%{
+
+transform:
+translate(-120px,80vh)
+rotate(0deg);
+
+}
+
+25%{
+
+transform:
+translate(30vw,35vh)
+rotate(15deg);
+
+}
+
+50%{
+
+transform:
+translate(60vw,60vh)
+rotate(-12deg);
+
+}
+
+75%{
+
+transform:
+translate(90vw,20vh)
+rotate(10deg);
+
+}
+
+100%{
+
+transform:
+translate(110vw,55vh)
+rotate(0deg);
+
+}
+
+}
+
+
+/* ========================= */
+/* NỀN CHUYỂN MÀU */
+/* ========================= */
+
+body{
+
+background:
+linear-gradient(
+120deg,
+#fff7ef,
+#ffe6f3,
+#f8e9ff,
+#fff7ef);
+
+background-size:400% 400%;
+
+animation:bgGradient 18s ease infinite;
+
+}
+
+@keyframes bgGradient{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+
+/* Blob chuyển động */
+
+.blob{
+
+animation:blobFloat 10s ease-in-out infinite;
+
+}
+
+.hero .blob2{
+
+animation-delay:2s;
+
+}
+
+.hero .blob3{
+
+animation-delay:4s;
+
+}
+
+@keyframes blobFloat{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-30px)
+scale(1.05);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+/* Responsive fix */
+@media (max-width:768px){
+.hero{min-height:auto;padding:48px 20px;}
+.hero-inner{grid-template-columns:1fr;text-align:center;gap:32px}
+.hero p.lede{max-width:100%}
+.btn-row{justify-content:center}
+.polaroid-stack{height:auto;display:flex;justify-content:center}
+.polaroid{position:relative!important;top:auto!important;left:auto!important;transform:none!important;width:min(320px,90vw)}
+.polaroid img{height:auto!important;aspect-ratio:4/5}
+.about-grid,.summary-grid{grid-template-columns:1fr}
+.summary-footer,.contact-grid{flex-direction:column}
+.contact-card,.btn{width:100%;justify-content:center}
+}
+/* =========================
+   THANH TIẾN TRÌNH
+========================= */
+
+#scrollProgress{
+position:fixed;
+top:0;
+left:0;
+height:5px;
+width:0%;
+background:linear-gradient(90deg,#ff3d7f,#7b2ff7,#00c9a7);
+z-index:99999;
+transition:.15s;
+}
+
+
+/* =========================
+   CURSOR GLOW
+========================= */
+
+#cursorGlow{
+
+position:fixed;
+
+width:35px;
+height:35px;
+
+border-radius:50%;
+
+background:rgba(255,61,127,.25);
+
+pointer-events:none;
+
+transform:translate(-50%,-50%);
+
+backdrop-filter:blur(4px);
+
+transition:
+width .18s,
+height .18s,
+background .18s;
+
+z-index:9999;
+
+}
+
+
+/* Hover */
+
+body.hovering #cursorGlow{
+
+width:65px;
+height:65px;
+
+background:rgba(123,47,247,.18);
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+#themeBtn{
+
+position:fixed;
+
+right:20px;
+bottom:95px;
+
+width:56px;
+height:56px;
+
+border:none;
+
+border-radius:50%;
+
+font-size:23px;
+
+cursor:pointer;
+
+background:white;
+
+box-shadow:0 8px 18px rgba(0,0,0,.18);
+
+z-index:99999;
+
+transition:.3s;
+
+}
+
+#themeBtn:hover{
+
+transform:rotate(20deg) scale(1.08);
+
+}
+
+
+/* Dark */
+
+.dark{
+
+background:#191725 !important;
+
+color:white;
+
+}
+
+.dark nav{
+
+background:rgba(25,23,37,.92);
+
+}
+
+.dark .info-card,
+.dark .summary-box,
+.dark .contact-card,
+.dark .skill-card{
+
+background:#2b273d;
+
+color:white;
+
+}
+
+.dark .homework-box{
+
+background:#2b273d;
+
+color:white;
+
+}
+
+
+/* =========================
+   SPARKLE
+========================= */
+
+.spark{
+
+position:fixed;
+
+width:8px;
+height:8px;
+
+border-radius:50%;
+
+pointer-events:none;
+
+background:#fff;
+
+box-shadow:
+
+0 0 10px #fff,
+
+0 0 20px #ff3d7f,
+
+0 0 30px #ff3d7f;
+
+animation:spark .8s forwards;
+
+z-index:999999;
+
+}
+
+@keyframes spark{
+
+0%{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+
+translateY(-45px)
+
+scale(0);
+
+}
+
+}
+        /* ===========================
+LIGHTBOX
+=========================== */
+
+#lightbox{
+
+position:fixed;
+inset:0;
+
+background:rgba(0,0,0,.85);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+opacity:0;
+visibility:hidden;
+
+transition:.4s;
+
+z-index:999999;
+
+}
+
+#lightbox.show{
+
+opacity:1;
+visibility:visible;
+
+}
+
+#lightbox img{
+
+max-width:85%;
+max-height:85%;
+
+border-radius:18px;
+
+border:6px solid white;
+
+box-shadow:0 0 40px rgba(255,255,255,.4);
+
+animation:zoomIn .35s;
+
+}
+
+@keyframes zoomIn{
+
+from{
+
+transform:scale(.5);
+
+}
+
+to{
+
+transform:scale(1);
+
+}
+
+}
+
+
+/* ===========================
+HEART
+=========================== */
+
+.heart{
+
+position:absolute;
+
+font-size:20px;
+
+animation:heartFloat 2s forwards;
+
+pointer-events:none;
+
+}
+
+@keyframes heartFloat{
+
+0%{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+100%{
+
+opacity:0;
+transform:
+translateY(-120px)
+rotate(20deg);
+
+}
+
+}
+        /* ===========================
+   PARTICLE CANVAS
+=========================== */
+
+#particleCanvas{
+position:fixed;
+inset:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:0;
+}
+
+/* ===========================
+   FIREFLIES
+=========================== */
+
+#fireflies{
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+z-index:2;
+}
+
+.firefly{
+
+position:absolute;
+
+width:7px;
+height:7px;
+
+border-radius:50%;
+
+background:#ffe96e;
+
+box-shadow:
+0 0 8px #fff799,
+0 0 18px #ffe96e,
+0 0 30px #ffe96e;
+
+animation:fireflyMove linear infinite;
+
+opacity:.9;
+
+}
+
+@keyframes fireflyMove{
+
+0%{
+
+transform:
+translateY(110vh)
+translateX(0);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(-20vh)
+translateX(180px);
+
+opacity:0;
+
+}
+
+}
+
+/* canvas luôn nằm dưới nội dung */
+
+.hero,
+.about,
+.homework,
+.overview,
+.contact,
+nav,
+footer{
+
+position:relative;
+z-index:5;
+
+}
+</style>
 </head>
-<script>
-
-
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform = "";
-
-    });
-
-    });
-    document.querySelectorAll(".skill-card").forEach(card => {
-
-        card.addEventListener("mousemove", (e) => {
-
-            const rect = card.getBoundingClientRect();
-
-            const x = e.clientX - rect.left;
-
-            const y = e.clientY - rect.top;
-
-            const rotateY = (x - rect.width / 2) / 12;
-
-            const rotateX = -(y - rect.height / 2) / 12;
-
-            card.style.transform =
-                `perspective(900px)
-rotateX(${rotateX}deg)
-rotateY(${rotateY}deg)
-translateY(-8px)`;
-
-        });
-
-</script>
 <body>
-
+    <canvas id="particleCanvas"></canvas>
+<div id="fireflies"></div>
+<!-- Hiệu ứng -->
+<div id="petals"></div>
+<div id="butterflies"></div>
     <nav>
         <div class="logo"><span class="dot"></span>Trần Thị Lý</div>
         <ul class="nav-links">
@@ -1067,7 +1608,7 @@ translateY(-8px)`;
         <div class="hero-inner">
             <div>
                 <span class="eyebrow">🎓 PORTFOLIO</span>
-                <h1>Xin chào, mình là <span class="swirl">Trần Lý</span> 👋</h1>
+               <h1 id="typing"></h1>
                 <p class="lede">
                     Sinh viên ngành Kinh Tế Phát  Triển tại Trường Đại học Kinh Tế -
                     ĐHQGHN. Đây là cuốn "hộ chiếu" nho nhỏ mình dùng để lưu lại hành trình học tập, các bài tập và những trải nghiệm đáng nhớ trong học phần Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo.
@@ -1291,8 +1832,6 @@ translateY(-8px)`;
 
                 </div>
 
-
-
             </div>
 
         </div>
@@ -1455,5 +1994,612 @@ translateY(-8px)`;
         }
 
     </script>
+    <script>
+
+/* ===========================
+   HOA ANH ĐÀO
+=========================== */
+
+const petalBox=document.getElementById("petals");
+
+function createPetal(){
+
+const p=document.createElement("div");
+
+p.className="petal";
+
+p.style.left=Math.random()*window.innerWidth+"px";
+
+const size=10+Math.random()*18;
+
+p.style.width=size+"px";
+p.style.height=size+"px";
+
+const t=8+Math.random()*8;
+
+p.style.animationDuration=t+"s";
+
+petalBox.appendChild(p);
+
+setTimeout(()=>{
+
+p.remove();
+
+},t*1000);
+
+}
+
+setInterval(createPetal,320);
+
+
+
+/* ===========================
+   BƯỚM
+=========================== */
+
+const butterflyBox=document.getElementById("butterflies");
+
+for(let i=0;i<5;i++){
+
+const b=document.createElement("div");
+
+b.className="butterfly";
+
+b.innerHTML="🦋";
+
+b.style.animationDuration=(18+Math.random()*8)+"s";
+
+b.style.animationDelay=(Math.random()*8)+"s";
+
+b.style.fontSize=(22+Math.random()*20)+"px";
+
+butterflyBox.appendChild(b);
+
+}
+
+
+/* ===========================
+   BƯỚM TRÁNH CHUỘT
+=========================== */
+
+document.addEventListener("mousemove",e=>{
+
+document.querySelectorAll(".butterfly").forEach(item=>{
+
+const x=item.getBoundingClientRect().left;
+
+const y=item.getBoundingClientRect().top;
+
+const dx=x-e.clientX;
+
+const dy=y-e.clientY;
+
+const d=Math.sqrt(dx*dx+dy*dy);
+
+if(d<120){
+
+item.style.transform=
+`translate(${dx/4}px,${dy/4}px)`;
+
+}else{
+
+item.style.transform="";
+
+}
+
+});
+
+});
+
+</script>
+    <!-- Progress Bar -->
+<div id="scrollProgress"></div>
+
+<!-- Cursor Glow -->
+<div id="cursorGlow"></div>
+
+<!-- Dark Mode -->
+<button id="themeBtn">🌙</button>
+
+<!-- Sparkle -->
+<div id="sparkles"></div>
+    <script>
+
+/* ==========================
+SCROLL PROGRESS
+========================== */
+
+window.addEventListener("scroll",()=>{
+
+const h=document.documentElement;
+
+const sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight);
+
+document.getElementById("scrollProgress").style.width=(sc*100)+"%";
+
+});
+
+
+/* ==========================
+CURSOR GLOW
+========================== */
+
+const glow=document.getElementById("cursorGlow");
+
+document.addEventListener("mousemove",e=>{
+
+glow.style.left=e.clientX+"px";
+
+glow.style.top=e.clientY+"px";
+
+});
+
+document.querySelectorAll("a,button,.btn").forEach(el=>{
+
+el.addEventListener("mouseenter",()=>{
+
+document.body.classList.add("hovering");
+
+});
+
+el.addEventListener("mouseleave",()=>{
+
+document.body.classList.remove("hovering");
+
+});
+
+});
+
+
+/* ==========================
+SPARKLE CLICK
+========================== */
+
+document.addEventListener("click",e=>{
+
+for(let i=0;i<10;i++){
+
+const s=document.createElement("div");
+
+s.className="spark";
+
+s.style.left=(e.clientX+(Math.random()*50-25))+"px";
+
+s.style.top=(e.clientY+(Math.random()*50-25))+"px";
+
+s.style.animationDelay=(Math.random()*.2)+"s";
+
+document.body.appendChild(s);
+
+setTimeout(()=>{
+
+s.remove();
+
+},900);
+
+}
+
+});
+
+
+/* ==========================
+DARK MODE
+========================== */
+
+const themeBtn=document.getElementById("themeBtn");
+
+if(localStorage.theme==="dark"){
+
+document.body.classList.add("dark");
+
+themeBtn.innerHTML="☀";
+
+}
+
+themeBtn.onclick=()=>{
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+
+themeBtn.innerHTML="☀";
+
+localStorage.theme="dark";
+
+}else{
+
+themeBtn.innerHTML="🌙";
+
+localStorage.theme="light";
+
+}
+
+};
+
+</script>
+    <div id="lightbox">
+    <img id="lightboxImg">
+</div>
+    <script>
+
+/* ==========================
+Typing Effect
+========================== */
+
+const text="Xin chào, mình là Trần Lý 👋";
+
+let i=0;
+
+function typing(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(typing,80);
+
+}
+
+}
+
+typing();
+
+
+/* ==========================
+Counter
+========================== */
+
+const counters=document.querySelectorAll(".summary-footer h2");
+
+const observer2=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+const el=entry.target;
+
+const value=el.innerText;
+
+if(!isNaN(parseInt(value))){
+
+let end=parseInt(value);
+
+let n=0;
+
+const timer=setInterval(()=>{
+
+n++;
+
+el.innerText=n;
+
+if(n>=end){
+
+clearInterval(timer);
+
+}
+
+},80);
+
+}
+
+}
+
+});
+
+});
+
+counters.forEach(c=>observer2.observe(c));
+
+
+/* ==========================
+Lightbox
+========================== */
+
+const photo=document.querySelector(".polaroid img");
+
+const lightbox=document.getElementById("lightbox");
+
+const lightboxImg=document.getElementById("lightboxImg");
+
+photo.onclick=()=>{
+
+lightbox.classList.add("show");
+
+lightboxImg.src=photo.src;
+
+}
+
+lightbox.onclick=()=>{
+
+lightbox.classList.remove("show");
+
+}
+
+document.addEventListener("keydown",e=>{
+
+if(e.key==="Escape"){
+
+lightbox.classList.remove("show");
+
+}
+
+});
+
+
+/* ==========================
+Heart
+========================== */
+
+const card=document.querySelector(".polaroid");
+
+card.addEventListener("mouseenter",()=>{
+
+for(let i=0;i<8;i++){
+
+const h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="💖";
+
+h.style.left=Math.random()*250+"px";
+
+h.style.top=Math.random()*250+"px";
+
+card.appendChild(h);
+
+setTimeout(()=>{
+
+h.remove();
+
+},2000);
+
+}
+
+});
+
+
+/* ==========================
+Magnetic Button
+========================== */
+
+document.querySelectorAll(".btn").forEach(btn=>{
+
+btn.addEventListener("mousemove",e=>{
+
+const rect=btn.getBoundingClientRect();
+
+const x=e.clientX-rect.left-rect.width/2;
+
+const y=e.clientY-rect.top-rect.height/2;
+
+btn.style.transform=
+
+`translate(${x*.18}px,${y*.18}px)`;
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform="";
+
+});
+
+});
+
+</script>
+    <script>
+
+/* ======================================
+PARTICLE BACKGROUND
+====================================== */
+
+const canvas=document.getElementById("particleCanvas");
+
+const ctx=canvas.getContext("2d");
+
+function resize(){
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+}
+
+resize();
+
+window.addEventListener("resize",resize);
+
+const particles=[];
+
+for(let i=0;i<70;i++){
+
+particles.push({
+
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+
+vx:(Math.random()-.5)*0.4,
+vy:(Math.random()-.5)*0.4,
+
+r:Math.random()*2+1
+
+});
+
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+
+p.x+=p.vx;
+p.y+=p.vy;
+
+if(p.x<0)p.x=canvas.width;
+if(p.x>canvas.width)p.x=0;
+
+if(p.y<0)p.y=canvas.height;
+if(p.y>canvas.height)p.y=0;
+
+ctx.beginPath();
+
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+
+ctx.fillStyle="rgba(255,120,180,.5)";
+
+ctx.fill();
+
+});
+
+requestAnimationFrame(draw);
+
+}
+
+draw();
+
+
+
+/* ======================================
+FIREFLIES
+====================================== */
+
+const fire=document.getElementById("fireflies");
+
+for(let i=0;i<20;i++){
+
+const f=document.createElement("div");
+
+f.className="firefly";
+
+f.style.left=Math.random()*100+"vw";
+
+f.style.animationDuration=(10+Math.random()*10)+"s";
+
+f.style.animationDelay=Math.random()*10+"s";
+
+fire.appendChild(f);
+
+}
+
+
+
+/* ======================================
+COUNTER FIX
+====================================== */
+
+document.querySelectorAll(".summary-footer h2").forEach(el=>{
+
+const txt=el.textContent.trim();
+
+if(txt.includes("%")){
+
+const end=parseInt(txt);
+
+el.textContent="0%";
+
+let n=0;
+
+const ob=new IntersectionObserver(entries=>{
+
+entries.forEach(e=>{
+
+if(e.isIntersecting){
+
+const timer=setInterval(()=>{
+
+n++;
+
+el.textContent=n+"%";
+
+if(n>=end){
+
+clearInterval(timer);
+
+}
+
+},20);
+
+ob.disconnect();
+
+}
+
+});
+
+});
+
+ob.observe(el);
+
+}
+
+});
+
+
+
+/* ======================================
+CONFETTI
+====================================== */
+
+let done=false;
+
+window.addEventListener("scroll",()=>{
+
+if(done) return;
+
+if(window.innerHeight+window.scrollY>
+
+document.body.offsetHeight-80){
+
+done=true;
+
+for(let i=0;i<120;i++){
+
+const c=document.createElement("div");
+
+c.style.position="fixed";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.top="-20px";
+
+c.style.width="8px";
+
+c.style.height="8px";
+
+c.style.background=
+`hsl(${Math.random()*360},100%,60%)`;
+
+c.style.pointerEvents="none";
+
+c.style.zIndex=999999;
+
+c.style.transition="4s linear";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.style.transform=
+`translateY(${window.innerHeight+120}px)
+rotate(720deg)`;
+
+},20);
+
+setTimeout(()=>{
+
+c.remove();
+
+},4200);
+
+}
+
+}
+
+});
+
+</script>
 </body>
 </html>
