@@ -85,19 +85,24 @@
         }
 
         /* ---------- NAV ---------- */
-       nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:999999;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:16px 6%;
-background:rgba(255,248,239,.95);
-backdrop-filter:blur(12px);
-border-bottom:3px solid var(--ink);
+     nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    width:100%;
+    z-index:999999;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:16px 6%;
+
+    background:rgba(255,248,239,.95);
+    backdrop-filter:blur(12px);
+
+    border-bottom:3px solid var(--ink);
 }
 body{
 padding-top:85px;
@@ -909,6 +914,8 @@ body{
     color:var(--ink);
     overflow-x:hidden;
 
+    padding-top:82px;
+
     background:linear-gradient(
         120deg,
         #fff7ef,
@@ -988,7 +995,7 @@ body{
     overflow:hidden;
 
     font-family:'Baloo 2';
-    ...
+   
 }
 
             .btn-primary::after {
@@ -1545,12 +1552,17 @@ opacity:0;
 .homework,
 .overview,
 .contact,
-nav,
 footer{
+    position:relative;
+    z-index:5;
+}
 
-position:relative;
-z-index:5;
-
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:999999;
 }
 </style>
 </head>
@@ -1568,7 +1580,8 @@ z-index:5;
             <li><a href="#overview">Tổng kết</a></li>
             <li><a href="#contact">Liên hệ</a></li>
         </ul>
-        <button class="burger" onclick="document.querySelector('.nav-links').classList.toggle('show')">☰</button>
+        <button class="burger" aria-label="Mở menu"
+            onclick="document.querySelector('.nav-links').classList.toggle('show')">☰</button>
     </nav>
 
     <!-- ============ bản thân ============ -->
@@ -1590,11 +1603,11 @@ z-index:5;
                 </div>
             </div>
             <div class="polaroid-stack">
-                <div class="polaroid p1">
+                <figure class="polaroid p1">
                     <div class="tape"></div>
                     <img src="images/tranthily.jpg" alt="Ảnh cá nhân">
                     <figcaption>Ảnh cá nhân</figcaption>
-                </div>
+                </figure>
             </div>
         </div>
     </header>
@@ -1611,7 +1624,7 @@ z-index:5;
                     </li>
                     <li><b>Ngày sinh</b> 21/09/2007</li>
                     <li><b>Sở thích</b> Đọc sách, vẽ, cầu lông</li>
-                    <li><b>Email</b> trantlys21@email.com</li>
+                    <li><b>Email</b> trantlys21@gmail.com</li>
                 </ul>
             </div>
             <div class="bio">
@@ -1661,6 +1674,7 @@ z-index:5;
 
                         <a href="https://drive.google.com/file/d/1mV26IUiZojIfAWIdQ3HECP7c3v3ydwG5/view"
                            target="_blank"
+                            rel="noopener noreferrer"
                            class="btn btn-secondary">
                             📁 Link bài tập
                         </a>
@@ -1688,6 +1702,7 @@ z-index:5;
 
                         <a href="https://docs.google.com/document/d/1CafhOtxHE7JWh1CPRLLSwsrDvZqoR-s4/edit"
                            target="_blank"
+                            rel="noopener noreferrer"
                            class="btn btn-secondary">
                             📁 Link bài tập
                         </a>
@@ -1715,6 +1730,7 @@ z-index:5;
 
                         <a href="https://docs.google.com/document/d/1JnTe4qY1nu1Vqw3L7ZERHZsUG_lNuw-M/edit"
                            target="_blank"
+                            rel="noopener noreferrer"
                            class="btn btn-secondary">
                             📁 Link bài tập
                         </a>
@@ -1742,6 +1758,7 @@ z-index:5;
 
                         <a href="https://docs.google.com/document/d/1e8Rfplp8MFLSuW_xtfTey1Uae6xwH0cW/edit#heading=h.66chm3e8zn5f"
                            target="_blank"
+                            rel="noopener noreferrer"
                            class="btn btn-secondary">
                             📁 Link bài tập
                         </a>
@@ -1769,6 +1786,7 @@ z-index:5;
 
                         <a href="https://docs.google.com/document/d/1jFJwr-bvVFMQXQ2K-D9tPAY5hY-2xUoh/edit"
                            target="_blank"
+                            rel="noopener noreferrer"
                            class="btn btn-secondary">
                             📁 Link bài tập
                         </a>
@@ -1791,6 +1809,7 @@ z-index:5;
 
                             <a href="https://docs.google.com/document/d/1BMoabPbEFzyUPJuX94qq3MSnw3qG3ndK/edit"
                                target="_blank"
+                                rel="noopener noreferrer"
                                class="btn btn-secondary">
                                 📁 Link bài tập
                             </a>
@@ -1822,10 +1841,8 @@ z-index:5;
                     <h3>📚 Điều mình học được</h3>
 
                     <p>
-                        Trong quá trình học tập và thực hiện các bài tập, mình đã rèn luyện
-                        khả năng tìm kiếm tài liệu, làm việc với cơ sở dữ liệu, lập trình,
-                        thiết kế website và giải quyết vấn đề. Mỗi môn học đều giúp mình
-                        tích lũy thêm kinh nghiệm và kỹ năng để phát triển bản thân.
+                        Trải nghiệm trong quá trình thực hiện Portfolio
+Trong quá trình xây dựng Portfolio, tôi đã có cơ hội hệ thống lại những kiến thức đã học và vận dụng chúng vào các sản phẩm thực tế. Đây là trải nghiệm giúp tôi hiểu rõ hơn cách ứng dụng công nghệ số và AI trong học tập, đồng thời rèn luyện tính chủ động, sáng tạo và khả năng tự học.
                     </p>
                 </div>
 
@@ -1833,10 +1850,10 @@ z-index:5;
                     <h3>🌱 Quá trình phát triển</h3>
 
                     <p>
-                        Từ những kiến thức cơ bản, mình đã từng bước hoàn thành nhiều bài
-                        tập và dự án nhỏ. Điều quan trọng nhất mình học được là tính kiên
-                        trì, khả năng tự học và luôn chủ động tìm ra cách giải quyết khi
-                        gặp khó khăn.
+                        Kiến thức và kỹ năng đạt được; Điều tâm đắc và những thách thức
+Qua học phần, tôi đã nắm được những kiến thức cơ bản về chuyển đổi số, trí tuệ nhân tạo và vai trò của công nghệ trong học tập cũng như cuộc sống. Bên cạnh đó, tôi cũng phát triển các kỹ năng quan trọng như tìm kiếm và đánh giá thông tin, sử dụng các công cụ AI một cách hiệu quả, làm việc trên nền tảng số và trình bày nội dung trực quan.
+
+Điều tôi tâm đắc nhất là nhận thức được rằng AI không chỉ là một công cụ hỗ trợ mà còn là động lực thúc đẩy việc học tập và phát triển bản thân. Thách thức lớn nhất trong quá trình thực hiện Portfolio là lựa chọn, tổng hợp và trình bày nội dung sao cho logic, ngắn gọn và có tính thẩm mỹ. Tuy nhiên, những khó khăn đó đã giúp tôi nâng cao kỹ năng tổ chức thông tin và sử dụng công nghệ hiệu quả hơn.
                     </p>
                 </div>
 
@@ -1845,7 +1862,7 @@ z-index:5;
             <div class="summary-footer">
 
                 <div>
-                    <h2>07</h2>
+                    <h2>06</h2>
                     <p>Bài tập hoàn thành</p>
                 </div>
 
@@ -1911,7 +1928,7 @@ z-index:5;
         </div>
     </section>
 
-    <footer>© 2026 Trần Thị Lý — Được tạo với 💜 và thật nhiều màu sắc.</footer>
+    <footer>© 2026 Trần Thị Lý — Được tạo bởi tôi với 💜 và thật nhiều màu sắc.</footer>
     <script>
 
         const observer = new IntersectionObserver(entries => {
